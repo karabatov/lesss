@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>A Faster Feed Apart / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2010/04/a-faster-feed-apart/">A Faster Feed&nbsp;Apart</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2010/04/a-faster-feed-apart/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2010-04-30T22:55:00">
+            </span>
+            on April 30, 2010.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p><a href="http://aneventapart.com/">An Event Apart</a> is a conference for web developers and designers that
+happens a few times a year in various cities.  <a href="http://afeedapart.com/">A Feed Apart</a> is a site
+that aggregates tweets during each conference and displays them in a live
+stream so attendees can follow them during the conference, and people not
+attending can see what the attendees are&nbsp;talking&nbsp;about.</p>
+<p>A Feed Apart was originally written by <a href="http://nicksergeant.com/">Nick Sergeant</a> and <a href="http://pkarl.com/">Pete
+Karl</a> of <a href="http://lionburger.com/">Lion Burger</a> during one of the conferences.  Since
+then a lot of people have used it and&nbsp;love&nbsp;it.</p>
+<p>The current A Feed Apart site is not without its problems.  It was written in
+a single night so it&#8217;s not perfect.  During the last conference it went down
+several times and lost some tweets along&nbsp;the&nbsp;way.</p>
+<p>I work at <a href="http://dwaiter.com/">Dumbwaiter Design</a> with Nick and one day he mentioned that
+it would be cool if we rewrote A Feed Apart from the ground up.  He&#8217;s learned
+a lot about how people use the site and what the big problems are, so we&#8217;d have
+a better idea of what we need&nbsp;to&nbsp;accomplish.</p>
+<p>Nick, myself and <a href="http://alialithinks.com/">Ali Ali</a> have risen to the challenge and started
+rewriting A Feed Apart.  Ali is a designer and is taking care of the design of
+the new site.  Nick is handling all the frontend <span class="caps"><span class="caps">HTML</span></span>, <span class="caps"><span class="caps">CSS</span></span> and Javascript.  My
+job is&nbsp;the&nbsp;backend.</p>
+<p>Ali posted a <a href="http://www.dcamm.com/blog/archives/765">blog entry</a> about the design of the new version so
+I figured I&#8217;d write about the backend to show how I&#8217;m trying to improve it.  If
+you have any advice I&#8217;d love to hear it &#8212; the next An Event Apart conference
+is about three weeks away so there&#8217;s still time to&nbsp;add&nbsp;improvements.</p>
+<div class="toc">
+<ul>
+<li><a href="#how-afa-is-used">How <span class="caps"><span class="caps">AFA</span></span> is Used</a><ul>
+<li><a href="#people-attending-the-conference">People Attending&nbsp;the&nbsp;Conference</a></li>
+<li><a href="#people-that-wish-they-were-attending-the-conference">People That Wish They Were Attending&nbsp;the&nbsp;Conference</a></li>
+<li><a href="#speakers-and-organizers">Speakers&nbsp;and&nbsp;Organizers</a></li>
+</ul>
+</li>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#staying-sane">Staying&nbsp;Sane</a></li>
+<li><a href="#being-real-time">Being Real Time</a><ul>
+<li><a href="#retrieving-updates">Retrieving&nbsp;Updates</a></li>
+<li><a href="#storing-updates">Storing&nbsp;Updates</a></li>
+<li><a href="#sending-updates-to-users">Sending Updates&nbsp;to&nbsp;Users</a></li>
+</ul>
+</li>
+<li><a href="#organizing-the-conversation">Organizing&nbsp;the&nbsp;Conversation</a></li>
+<li><a href="#staying-consistent">Staying&nbsp;Consistent</a></li>
+<li><a href="#getting-bigger">Getting&nbsp;Bigger</a></li>
+<li><a href="#a-work-in-progress">A Work&nbsp;in&nbsp;Progress</a></li>
+</ul>
+</div>
+<h2 id="how-afa-is-used">How <span class="caps"><span class="caps">AFA</span></span>&nbsp;is&nbsp;Used</h2>
+<p>You can&#8217;t hope to improve on a site unless you know how people are going to use
+it.  <span class="caps"><span class="caps">AFA</span></span> has been around for a while and Nick has learned a lot about what
+people want to get out&nbsp;of&nbsp;it.</p>
+<p>There are three main kinds of users of&nbsp;<span class="caps"><span class="caps">AFA</span></span>:</p>
+<ul>
+<li>People attending&nbsp;the&nbsp;conference</li>
+<li>People that wish they were attending&nbsp;the&nbsp;conference</li>
+<li>The speakers/organizers of&nbsp;the&nbsp;conference</li>
+</ul>
+<h3 id="people-attending-the-conference">People Attending&nbsp;the&nbsp;Conference</h3>
+<p>People that attend <span class="caps"><span class="caps">AEA</span></span> are web developers and designers.  They&#8217;re up-to-date on
+the latest technology and almost all of them use <a href="http://twitter.com/">Twitter</a>.</p>
+<p>During the conference you&#8217;ll see a sea of laptops in the audience.  Attendees
+will tweet about whatever is happening <em>right now</em>.  There&#8217;s a huge amount of
+conversation that happens between attendees that <span class="caps"><span class="caps">AFA</span></span> is trying to collect&nbsp;and&nbsp;present.</p>
+<p>A simple example is one that Nick mentioned to me: if a presenter mentions
+a website during her presentation someone will tweet the <span class="caps"><span class="caps">URL</span></span> so other people
+can have a link to easily click on.  Attendees will also tweet their agreement
+or disagreement with what the presenter is saying <em>as they&#8217;re speaking</em>.</p>
+<p>The most important aspect of <span class="caps"><span class="caps">AFA</span></span> for this group of people is the <em>real time
+conversation</em>.  If <span class="caps"><span class="caps">AFA</span></span> doesn&#8217;t show tweets until a minute after they&#8217;ve been
+posted it&#8217;s useless to&nbsp;these&nbsp;people.</p>
+<p>Another important part of <span class="caps"><span class="caps">AFA</span></span> for attendees is that it&#8217;s a one-stop-shop for
+the conversation behind <span class="caps"><span class="caps">AEA</span></span>.  Switching between windows/tabs/applications to
+read and contribute&nbsp;is&nbsp;annoying.</p>
+<h3 id="people-that-wish-they-were-attending-the-conference">People That Wish They Were Attending&nbsp;the&nbsp;Conference</h3>
+<p>The next group of users is those that can&#8217;t attend the conference for a variety
+of reasons but are still interested in what&#8217;s&nbsp;going&nbsp;on.</p>
+<p>For this group the real time nature of <span class="caps"><span class="caps">AFA</span></span> is unimportant.  They&#8217;re probably
+not going to be following the conversation 24/7 so if a tweet takes a few
+minutes to display it&#8217;s not a&nbsp;big&nbsp;deal.</p>
+<p>What these people <em>do</em> care about is the integrity of the stream.  They don&#8217;t
+want to miss any part of the conversation.  If <span class="caps"><span class="caps">AFA</span></span> loses tweets they&#8217;re better
+off doing a simple search on Twitter because they&#8217;ll get the&nbsp;whole&nbsp;story.</p>
+<h3 id="speakers-and-organizers">Speakers&nbsp;and&nbsp;Organizers</h3>
+<p>The last main group of users is the speakers and organizers of&nbsp;<span class="caps"><span class="caps">AEA</span></span>.</p>
+<p>Any speaker worth their salt will want to know what people are said about their
+presentation.  Obviously they can&#8217;t be reading <span class="caps"><span class="caps">AFA</span></span> while they&#8217;re presenting,
+but afterword they&#8217;ll certainly want to go back and see what people were saying
+during their&nbsp;specific&nbsp;presentation.</p>
+<p>Likewise, organizers want to know which presentations people liked and which
+ones people didn&#8217;t enjoy.  This could easily influence who they choose to
+invite to&nbsp;future&nbsp;conferences.</p>
+<p>For this group the most important aspect of <span class="caps"><span class="caps">AFA</span></span> is the organization of the
+conversation into chunks, each of which applies to a single presentation.  By
+reading through each chunk of conversation they can get an idea of the general
+response to&nbsp;each&nbsp;presentation.</p>
+<h2 id="goals">Goals</h2>
+<p>Once we identified the main users of <span class="caps"><span class="caps">AFA</span></span> we were able to come up with the goals
+for the new version of&nbsp;the&nbsp;site:</p>
+<ul>
+<li>
+<p><strong>Stay sane while developing.</strong>  Ali, Nick and myself are rewriting the site
+  as a side project, so we don&#8217;t want it to take <em>too</em> much of our time or cause
+  <em>too</em>&nbsp;much&nbsp;stress.</p>
+</li>
+<li>
+<p><strong>Provide the real time conversation.</strong>  The site needs to be fast and
+  responsive, so people at the conferences can use it&nbsp;to&nbsp;converse.</p>
+</li>
+<li>
+<p><strong>Don&#8217;t miss anything.</strong>  People following along from home shouldn&#8217;t feel
+  like they&#8217;re missing anything.  We want to provide a <em>complete</em> version of the
+  conversation happening behind&nbsp;the&nbsp;event.</p>
+</li>
+<li>
+<p><strong>Organize the conversation.</strong>  Presenters and speakers need a way to see
+  what people are saying about them.  They want to know what people think about
+  each &#8220;chunk&#8221; of&nbsp;the&nbsp;event.</p>
+</li>
+<li>
+<p><strong>Grease the wheels of (physical) social interaction.</strong>  This is something
+  that <span class="caps"><span class="caps">AFA</span></span> hasn&#8217;t tried to address before, but that we&#8217;d like to work on with
+  this version.  There are a lot of people at each conference and we&#8217;d like to
+  help them get together.  Whether it&#8217;s going out for dinner or meeting up at the
+  <a href="http://mediatemple.net/">Media Temple</a> party we want to get people talking to each other.  I won&#8217;t
+  talk about this goal in this post because we&#8217;re still figuring out the best way
+  to&nbsp;do&nbsp;it.</p>
+</li>
+</ul>
+<h2 id="staying-sane">Staying&nbsp;Sane</h2>
+<p>If the three of us tried to create the site with nothing more than a couple of
+laptops and a few chats in person we&#8217;d go crazy.  We use a few tools to help us
+manage the development of&nbsp;the&nbsp;site.</p>
+<p>To create <strong>wireframes of the design</strong> we&#8217;re using a free account at <a href="http://hotgloo.com/">Hot
+Gloo</a>.  Hot Gloo is a great tool that lets us quickly sketch out ideas
+and comment&nbsp;on&nbsp;them.</p>
+<p>To share <strong>design comps</strong> we&#8217;re using <a href="http://dropbox.com/">Dropbox</a>.  It&#8217;s simple to set up
+a shared Dropbox folder and Nick and I can get real time updates when Ali makes
+changes to&nbsp;the&nbsp;design.</p>
+<p>To <strong>work together on the code</strong> Nick and I use <a href="http://hg-scm.org/">Mercurial</a> repositories.
+Mercurial lets us work on the same code bases simultaneously and we almost
+never have to worry about merging.  We use <a href="http://codebasehq.com/">Codebase</a> for hosting and&nbsp;issue&nbsp;tracking.</p>
+<h2 id="being-real-time">Being&nbsp;Real&nbsp;Time</h2>
+<p>The previous version of <span class="caps"><span class="caps">AFA</span></span> wasn&#8217;t <em>truly</em> real time.  When you went to the
+site your browser would ask <span class="caps"><span class="caps">AFA</span></span> for the newest updates every&nbsp;10&nbsp;seconds.</p>
+<p>There are two main problems with this approach.  The first is that it&#8217;s not
+really <em>real time</em>.  I&#8217;ve noticed this being an issue in my&nbsp;own&nbsp;experience.</p>
+<p>When I watch any of the various &#8220;live streams&#8221; of <a href="http://apple.com/">Apple</a> press conferences
+I&#8217;m usually at work where other people are also watching.  We very rarely load
+the pages of the streaming sites like Gizmodo at the exact same second, so our
+browsers will be out of sync with each other.  Nick might get an update that
+I would have to wait 8 more seconds&nbsp;to&nbsp;see.</p>
+<p>When I glance over at his screen and see an update that I don&#8217;t have
+I instinctively refresh the page to get it.  This defeats the purpose of the
+&#8220;live updating&#8221; code that the developers of these sites worked on.  They may as
+well have just made a static page and told me&nbsp;to&nbsp;refresh.</p>
+<p>The second problem is that querying every 10 seconds can be taxing on the
+site&#8217;s database.  We&#8217;re doing this as a side project so we don&#8217;t have unlimited
+funding for a hefty database server.  If 1,000 people are querying for updates
+every 10 seconds that&#8217;s 100 requests per second to the database.  This means we
+need to have some kind of in-memory cacheing if we want the site to feel snappy
+on&nbsp;modest&nbsp;hardware.</p>
+<p>We want the new <span class="caps"><span class="caps">AFA</span></span> to be truly real time.  To do this we need to use <a href="http://en.wikipedia.org/wiki/Push_technology#Long_polling">long
+polling</a> by users&#8217; browsers to wait for updates and return them as
+soon as they come in.  We also need to retrieve the updates as fast as we
+possibly can, and they need to be stored in memory to avoid hitting the&nbsp;database&nbsp;constantly.</p>
+<h3 id="retrieving-updates">Retrieving&nbsp;Updates</h3>
+<p>The bulk of the conversation about <span class="caps"><span class="caps">AEA</span></span> conferences comes from Twitter.  Tweets
+are the most important items that we need to display on the site, so we&#8217;re
+using Twitter&#8217;s streaming <span class="caps"><span class="caps">API</span></span> to pull&nbsp;them&nbsp;in.</p>
+<p>Since we don&#8217;t want to tie up an entire server to pull in tweets I&#8217;ve decided
+to create a <a href="http://dieselweb.org/">Diesel</a>-based application called <strong>The Nozzletron</strong> to parse the
+streaming <span class="caps"><span class="caps">API</span></span>.  Diesel is a <a href="http://python.org/">Python</a> framework that takes an elegant approach
+to asynchronous communication with clients&nbsp;and&nbsp;servers.</p>
+<p>Twitter&#8217;s streaming <span class="caps"><span class="caps">API</span></span> accepts <span class="caps"><span class="caps">HTTP</span></span> requests and returns &#8220;chunked&#8221; responses,
+each of which is a tweet.  Unfortunately the Diesel&#8217;s built-in <span class="caps"><span class="caps">HTTP</span></span> client
+doesn&#8217;t handle chunked <span class="caps"><span class="caps">HTTP</span></span> responses so I had to write some code to handle&nbsp;them&nbsp;myself.</p>
+<p>The Nozzletron will connect to Twitter&#8217;s streaming <span class="caps"><span class="caps">API</span></span> and wait for data to
+come in.  If there&#8217;s no data to process it will relinquish the server&#8217;s
+processor so it can do other things.  Processing a single tweet that comes in
+doesn&#8217;t take much time, so the server is free to do other things most of&nbsp;the&nbsp;time.</p>
+<p>I&#8217;ve also created another application called <strong>The Flickrtron</strong> to pull in
+<a href="http://flickr.com/">Flickr</a> photos.  Unfortunately Flickr doesn&#8217;t have a streaming <span class="caps"><span class="caps">API</span></span> like
+Twitter so I have to resort to polling Flickr&#8217;s <span class="caps"><span class="caps">API</span></span> every few minutes for new
+photos.  Flickr is much less of a real time medium than Twitter though, so
+I don&#8217;t think this is a very&nbsp;big&nbsp;problem.</p>
+<p>I&#8217;m using a Python library called <a href="http://stuvel.eu/projects/flickrapi">Beej&#8217;s Flickr <span class="caps"><span class="caps">API</span></span></a> to talk to
+Flickr.  It is horrible.  It calls itself an &#8220;<span class="caps"><span class="caps">API</span></span>&#8221; but is really just a thin
+wrapper around calls to the Flickr <span class="caps"><span class="caps">API</span></span>.  The objects it returns for <span class="caps"><span class="caps">API</span></span> calls
+are Elementtree objects representing the <span class="caps"><span class="caps">XML</span></span> of&nbsp;the&nbsp;response.</p>
+<p>I wish I could do&nbsp;something&nbsp;like:</p>
+<div class="codehilite"><pre><span class="n">thumb_url</span> <span class="o">=</span> <span class="n">photo</span><span class="o">.</span><span class="n">thumbnail_url</span>
+</pre></div>
+
+
+<p>Instead I have to use&nbsp;this&nbsp;monstrosity:</p>
+<div class="codehilite"><pre><span class="n">thumb_url</span> <span class="o">=</span> <span class="s">&quot;http://farm</span><span class="si">%s</span><span class="s">.static.flickr.com/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_s.jpg&quot;</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="n">photo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;farm&#39;</span><span class="p">),</span> <span class="n">photo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;server&#39;</span><span class="p">),</span> <span class="n">photo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">),</span>
+    <span class="n">photo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;secret&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>I wish there were a better Python Flickr <span class="caps"><span class="caps">API</span></span> out there but there doesn&#8217;t seem
+to be one.  If I&#8217;ve missed it please let&nbsp;me&nbsp;know!</p>
+<h3 id="storing-updates">Storing&nbsp;Updates</h3>
+<p>We need a fast way to store and retrieve updates so <span class="caps"><span class="caps">AFA</span></span> can provide a real time
+view of the conversation happening at <span class="caps"><span class="caps">AEA</span></span>.  With this in mind I&#8217;ve chosen
+<a href="http://code.google.com/p/redis/">Redis</a> to store the updates of the&nbsp;currently-happening&nbsp;event.</p>
+<p>Redis is an easy-to-set-up, disgustingly-fast, in-memory data store.  It&#8217;s
+similar to <a href="http://memcached.org/">memcached</a> but has more intelligent data structures that make my
+life easier for&nbsp;this&nbsp;project.</p>
+<p>As updates (tweets and flickr photos) are scraped by The Nozzletron and The
+Flickrtron they&#8217;re placed at the tail end of a Redis list.  That means I can
+quickly and easily get all the items since item <code>N</code> when a user&#8217;s browser
+requests them with a single <code>LRANGE {list-key} N -1</code> call.</p>
+<p>I&#8217;m also keeping a few other pieces of information in Redis.  For example,
+there&#8217;s a set of photo IDs held in the <code>{item-key}:flickrtron:grabbed_photos</code>
+key that keeps track of all of the photos we&#8217;ve&nbsp;already&nbsp;seen.</p>
+<p>This makes it easy to tell if we&#8217;ve already seen a photo (and therefore don&#8217;t
+need to query Flickr for more information) &#8212; it&#8217;s a simple <code>SISMEMBER
+{item-key}:flickrtron:grabbed_photos {photo-id}</code> call.</p>
+<p>I&#8217;m also using Redis to store statistics about the&nbsp;site&nbsp;like:</p>
+<ul>
+<li>How many tweets&nbsp;we&#8217;ve&nbsp;scraped.</li>
+<li>How many photos&nbsp;we&#8217;ve&nbsp;scraped.</li>
+<li>How many people are currently waiting&nbsp;for&nbsp;updates.</li>
+</ul>
+<p>This kind of information will be extremely valuable in the future when we&#8217;re
+planning improvements to the site.  Redis makes it fast and safe to update this
+information using the <code>INCRBY</code> and <code>DECR</code> commands.</p>
+<p>There&#8217;s one more component to The Nozzletron and The Flickrton that I haven&#8217;t
+mentioned.  Both use Redis&#8217; <code>PUBLISH</code> command to push new updates out to users&#8217;
+browsers as they arrive.  I&#8217;ll talk more about that in the&nbsp;next&nbsp;section.</p>
+<h3 id="sending-updates-to-users">Sending Updates&nbsp;to&nbsp;Users</h3>
+<p>As I mentioned before we want to send updates to users <em>as soon as they&#8217;re
+received</em>.  To do this I&#8217;ve created another Diesel-based application called
+<strong>Halley</strong> to handle this <a href="http://en.wikipedia.org/wiki/Comet_(programming)">Comet</a>-style&nbsp;communication.</p>
+<p>Halley has a few components.  The first uses Diesel&#8217;s <a href="http://bitbucket.org/boomplex/diesel/src/tip/diesel/protocols/redis.py">Redis <span class="caps"><span class="caps">API</span></span></a>
+to subscribe to a Redis channel like <code>live:{event-id}:items</code> and
+<a href="http://bitbucket.org/boomplex/diesel/src/tip/diesel/core.py#cl-90">fire</a> off messages whenever something new comes in.  As soon as
+a new update comes in from The Nozzletron or The Flickrtron all of Halley&#8217;s
+clients will&nbsp;get&nbsp;it.</p>
+<p>When I started working on <span class="caps"><span class="caps">AFA</span></span> Diesel&#8217;s Redis client didn&#8217;t support the very new
+<code>PUBLISH</code>/<code>SUBSCRIBE</code>/<code>UNSUBSCRIBE</code> commands.  I implemented them, put my
+changes on <a href="http://bitbucket.org/">BitBucket</a>, sent a pull request, and started talking to the
+Diesel crew on&nbsp;<span class="caps"><span class="caps">IRC</span></span>.</p>
+<p>One of the maintainers pulled my patches and made them even better.  Now
+Diesel&#8217;s Redis client has full <code>PUBLISH</code>/<code>SUBSCRIBE</code>/<code>UNSUBSCRIBE</code> support.
+It&#8217;s a great example of how open source projects can produce&nbsp;awesome&nbsp;results.</p>
+<p>The other main component of Halley is an <span class="caps"><span class="caps">HTTP</span></span> server that listens for
+connections from browsers.  The Javascript on the site will call Halley and say
+&#8220;I need updates since number <code>X</code>&#8220;, where <code>X</code> is the length of the Redis list of
+updates at the last time it spoke to&nbsp;the&nbsp;server.</p>
+<p>Halley uses Diesel&#8217;s <a href="http://bitbucket.org/boomplex/diesel/src/tip/diesel/protocols/http.py#cl-156"><span class="caps"><span class="caps">HTTP</span></span> Server</a> to manage&nbsp;these&nbsp;requests.</p>
+<p>If a client is asking for everything since <code>X</code> and <code>X</code> is a smaller number than
+the current number of items it will return the updates that have happened since
+then.  This might happen if we return an update and then two more updates
+happen before the browser gets around to sending&nbsp;another&nbsp;request.</p>
+<p>If a client is asking for everything since <code>X</code> and <code>X</code> is equal to the current
+number of items Halley will wait for a new message to be fired from the
+<a href="http://bitbucket.org/boomplex/diesel/src/tip/diesel/core.py#cl-179">Loop</a> that&#8217;s watching the Redis channel.  While Halley waits she
+relinquishes the processor to the server so other requests can&nbsp;be&nbsp;handled.</p>
+<p>There&#8217;s a bit of code to prevent DoS attacks that request every item in the
+queue over and over again,&nbsp;of&nbsp;course.</p>
+<h2 id="organizing-the-conversation">Organizing&nbsp;the&nbsp;Conversation</h2>
+<p>The live stream is an important component of <span class="caps"><span class="caps">AFA</span></span>, but it&#8217;s not the only one.
+We also need to organize updates into logical chunks by event and presentation,
+and provide archives of old events so people can see&nbsp;what&nbsp;happened.</p>
+<p>The main <span class="caps"><span class="caps">AFA</span></span> site is built with <a href="http://djangoproject.com/">Django</a> and served with <a href="http://gunicorn.org/">Gunicorn</a> and
+<a href="http://nginx.org/">Nginx</a>.  It uses a <a href="http://www.postgresql.org/">Postgresql</a> database to store data that&#8217;s not &#8220;live&#8221;.
+Because queries for live data are handled with Diesel and Redis we don&#8217;t need
+to send those request through the full Django/Postgresql stack.  Django and
+Postgresql are only involved when you load a fresh page, and they&#8217;re <em>more</em>
+than capable of handling the amount of traffic that <span class="caps"><span class="caps">AFA</span></span> gets for those kind&nbsp;of&nbsp;requests.</p>
+<p>I&#8217;ve created an application called <strong>The Strainer</strong> to copy data from the live
+stream to the Postgresql database.  The Strainer looks at the list of live
+items in Redis, parses those items into Django models and saves them to the&nbsp;Postgresql&nbsp;database.</p>
+<p>Using two different types of stores (Redis and Postgresql) means we can get the
+best of both worlds for&nbsp;<span class="caps"><span class="caps">AFA</span></span>:</p>
+<ul>
+<li>
+<p>We can keep the live data that&#8217;s accessed <em>constantly</em> in an in-memory Redis
+  datastore which makes it&nbsp;blazingly&nbsp;fast.</p>
+</li>
+<li>
+<p>We can keep the less-frequently-used data in an on-disk Postgresql database
+  which lets us to keep our memory usage low and hosting&nbsp;costs&nbsp;down.</p>
+</li>
+</ul>
+<p>Django&#8217;s models and managers make it very easy to separate updates out into the
+various sessions and presentations that happen at&nbsp;the&nbsp;conferences.</p>
+<p>Sessions and presentations are much less in-demand than the live stream so we
+can take advantage of Django&#8217;s abstractions without worrying about the extra
+memory/<span class="caps"><span class="caps">CPU</span></span> usage we incur by&nbsp;doing&nbsp;so.</p>
+<h2 id="staying-consistent">Staying&nbsp;Consistent</h2>
+<p>Another problem <span class="caps"><span class="caps">AFA</span></span> has faced in the past is losing tweets.  No code is perfect
+(and mine <em>certainly</em> is not) so we need to anticipate that some of the
+applications we&#8217;re using will crash at&nbsp;some&nbsp;point.</p>
+<p>I&#8217;m using <a href="http://supervisord.org/">Supervisord</a> to monitor the various processes of <span class="caps"><span class="caps">AFA</span></span> on the
+server.  If a process crashes for some reason it will be&nbsp;restarted&nbsp;automatically.</p>
+<p>Supervisord also has a wonderful Python <span class="caps"><span class="caps">API</span></span>, so I&#8217;ve created a simple Dashboard
+view in the Django site that lets us stop/start/restart each individual process
+with a simple web interface. The dashboard also shows us the current memory
+usage of the server and some other statistics so we can monitor how things are
+working through a web browser (instead of <span class="caps"><span class="caps">SSH</span></span>&#8217;ing into the server, which is
+a pain on&nbsp;a&nbsp;phone).</p>
+<h2 id="getting-bigger">Getting&nbsp;Bigger</h2>
+<p>An Event Apart is a large event, but it&#8217;s not a <em>huge</em> event.  Despite this
+I&#8217;ve been trying to build the backend in a way that can be&nbsp;easily&nbsp;scaled.</p>
+<p>Right now it&#8217;s hosted on a single server, but each of the individual components
+could be moved to a separate server with less than an hour of&nbsp;work&nbsp;each:</p>
+<ul>
+<li>Redis</li>
+<li>Postgresql</li>
+<li>Django, Nginx&nbsp;and&nbsp;Gunicorn</li>
+<li>The&nbsp;Nozzletron</li>
+<li>The&nbsp;Flickrtron</li>
+<li>The&nbsp;Strainer</li>
+<li>Halley</li>
+</ul>
+<p>Moving Django/Gunicorn, Nginx, Redis, Halley, and Postgresql to dedicated
+servers would increase the performance of the site <em>immensely</em>.  I can&#8217;t
+imagine an event that would provide enough traffic to require more&nbsp;than&nbsp;that.</p>
+<p>Even if there were an event that needed that kind of throughput, we could
+easily split the single Halley and Redis servers into multiple&nbsp;load-balanced&nbsp;servers.</p>
+<h2 id="a-work-in-progress">A Work&nbsp;in&nbsp;Progress</h2>
+<p>This new version of A Feed Apart is still being built.  I&#8217;m learning new things
+every time I work on it, and I&#8217;m sure there&#8217;s still room&nbsp;for&nbsp;improvement.</p>
+<p>If you have any questions, advice, or want me to go more in-depth about
+a specific aspect of the site&#8217;s backend please let&nbsp;me&nbsp;know!</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>

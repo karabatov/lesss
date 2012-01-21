@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>How to Contribute to Mercurial / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2009/06/how-to-contribute-to-mercurial/">How to Contribute to&nbsp;Mercurial</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2009/06/how-to-contribute-to-mercurial/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2009-06-01T20:09:44">
+            </span>
+            on June 1, 2009.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>After my last post on <a href="http://stevelosh.com/blog/entry/2009/5/29/what-i-hate-about-mercurial/">What I Hate About Mercurial</a>, seydar commented
+that I should contribute a patch to add untrack/forget functionality. I
+decided to take the advice, stop being lazy and&nbsp;write&nbsp;one.</p>
+<p>It&#8217;s a very, very simple change and I&#8217;m not sure if it will even make it into
+the core repository, but even so it gave me a chance to figure out how to set
+up a decent development environment for hacking on Mercurial. I figured that
+other people might find that information useful so I decided to&nbsp;write&nbsp;this.</p>
+<div class="toc">
+<ul>
+<li><a href="#about-this-guide">About&nbsp;This&nbsp;Guide</a></li>
+<li><a href="#join-the-community">Join&nbsp;the&nbsp;Community</a></li>
+<li><a href="#grab-the-source">Grab&nbsp;the&nbsp;Source</a></li>
+<li><a href="#set-up-virtualenv">Set&nbsp;Up&nbsp;virtualenv</a></li>
+<li><a href="#set-up-a-public-repository">Set Up A&nbsp;Public&nbsp;Repository</a></li>
+<li><a href="#set-up-your-local-clone">Set Up Your&nbsp;Local&nbsp;Clone</a></li>
+<li><a href="#build-mercurial">Build&nbsp;Mercurial</a></li>
+<li><a href="#create-a-virtual-environment-for-mercurial-development">Create a Virtual Environment for&nbsp;Mercurial&nbsp;Development</a></li>
+<li><a href="#why-bother-with-a-virtual-environment">Why Bother With a&nbsp;Virtual&nbsp;Environment?</a></li>
+<li><a href="#get-to-work">Get&nbsp;To&nbsp;Work!</a></li>
+<li><a href="#modify-the-test-suite">Modify the&nbsp;Test&nbsp;Suite</a></li>
+<li><a href="#add-to-the-test-suite">Add to the&nbsp;Test&nbsp;Suite</a></li>
+<li><a href="#email-your-patches-to-the-mailing-list">Email Your Patches to the&nbsp;Mailing&nbsp;List</a></li>
+<li><a href="#thats-it-now-go-contribute">That&#8217;s It, Now&nbsp;Go&nbsp;Contribute!</a></li>
+</ul>
+</div>
+<h2 id="about-this-guide">About&nbsp;This&nbsp;Guide</h2>
+<p>This is meant to be a guide to get yourself set up to work on Mercurial&#8217;s code
+base and contribute your work back to the community. It&#8217;s <em>not</em> a guide for
+actually working on&nbsp;the&nbsp;code.</p>
+<p>I&#8217;m going to go ahead and assume a few&nbsp;(small)&nbsp;things:</p>
+<ol>
+<li>You&#8217;re running <span class="caps"><span class="caps">OS</span></span> X or some form of Linux. If you&#8217;re using Windows, I&#8217;m
+   sorry, but I just don&#8217;t use it enough to&nbsp;really&nbsp;help.</li>
+<li>You&#8217;ve got <a href="http://python.org/">Python</a>&nbsp;installed.</li>
+<li>You&#8217;ve got a copy of Mercurial installed in some way (MacPorts, apt-get,&nbsp;source,&nbsp;etc).</li>
+<li>You&#8217;re familiar with (and have clients for) <span class="caps"><span class="caps">IRC</span></span>&nbsp;and&nbsp;email.</li>
+</ol>
+<p>If those things are true, let&#8217;s get started. The entire process should take
+between 15 and 45 minutes, depending on how comfortable you are with bash,
+Python, and&nbsp;Mercurial&nbsp;itself.</p>
+<h2 id="join-the-community">Join&nbsp;the&nbsp;Community</h2>
+<p>The first step to contributing is to join the community. Things will probably
+go more smoothly if other developers have seen your name before and those
+other developers are a great resource if you&nbsp;get&nbsp;stuck.</p>
+<p>Join the <a href="irc://irc.freenode.net/#mercurial">#mercurial channel on Freenode</a>. A lot of other Mercurial
+developers hang out in there and it&#8217;s a good place to go if you want some
+really quick feedback. Take a few minutes and <a href="http://freenode.net/faq.shtml#userregistration">register your nick</a>
+on Freenode, just because it&#8217;s a good thing&nbsp;to&nbsp;do.</p>
+<p>You should also <a href="http://www.selenic.com/mailman/listinfo/mercurial-devel/">subscribe</a> to the Mercurial development <a href="http://www.selenic.com/pipermail/mercurial-devel/">mailing list</a>.
+That&#8217;s where you&#8217;re going to be sending your work, so it&#8217;s good to start
+getting an idea of how people use the list as soon&nbsp;as&nbsp;possible.</p>
+<h2 id="grab-the-source">Grab&nbsp;the&nbsp;Source</h2>
+<p>Now you&#8217;ll want to grab the Mercurial source code so you can start changing
+it. The repository you almost certainly want to clone is the <a href="http://hg.intevation.org/mercurial/crew">crew
+repository</a>.</p>
+<p>Several people (listed <a href="http://www.selenic.com/mercurial/wiki/CrewRepository">here</a>) have write access to this and
+it&#8217;s where most changes go before they&#8217;re pulled into the main Mercurial
+repositories. Your want your changes to apply cleanly to the tip of crew if
+you want them to have the best chance of&nbsp;being&nbsp;accepted.</p>
+<p>Go ahead and clone it somewhere on your machine (replace <code>hg-crew</code> if you
+prefer a different name for&nbsp;the&nbsp;folder):</p>
+<div class="codehilite"><pre>hg clone http://hg.intevation.org/mercurial/crew hg-crew
+</pre></div>
+
+
+<p>It&#8217;s going to take a little while. Mercurial might be fast but its repository
+has over 8,600 changesets. While you&#8217;re waiting you can move on to the&nbsp;next&nbsp;step.</p>
+<h2 id="set-up-virtualenv">Set&nbsp;Up&nbsp;virtualenv</h2>
+<p>This might not seem like it&#8217;s necessary, but trust me, it&#8217;s a good thing to
+do. It will make things easier down the road,&nbsp;I&nbsp;promise.</p>
+<p>No, <em>really</em>, take ten minutes and do this. You&#8217;ll&nbsp;thank&nbsp;me.</p>
+<p><a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> is a tool that lets you create separate Python development
+environments that are isolated from each other. The packages and binaries for
+one won&#8217;t contaminate the others. It will make testing our work on&nbsp;Mercurial&nbsp;painless.</p>
+<p>Open a new terminal window while the crew repository is busy cloning. Install
+virtualenv in the usual&nbsp;Python&nbsp;fashion:</p>
+<div class="codehilite"><pre>sudo easy_install virtualenv
+</pre></div>
+
+
+<p>Now install the <a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>&nbsp;tool:</p>
+<div class="codehilite"><pre>sudo easy_install virtualenvwrapper
+</pre></div>
+
+
+<p>This is a nifty little shell script that makes working with virtual
+environments much more pleasant. Before you can use it, you&#8217;ll need to source
+it into your <code>~/.bashrc</code> or <code>~/.bash_profile</code> file, as well as choose a place
+to stick the&nbsp;environments&nbsp;themselves:</p>
+<div class="codehilite"><pre><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$<span class="caps"><span class="caps">HOME</span></span></span>/lib/virtualenvs
+<span class="nb">source</span> /<span class="o">(</span>path to python<span class="o">)</span>/bin/virtualenvwrapper_bashrc
+</pre></div>
+
+
+<p>As you can see, I prefer to put the <code>virtualenvs</code> folder inside my <code>~/lib</code>
+folder. You can change that to any place&nbsp;you&nbsp;like.</p>
+<p>You&#8217;ll also need to replace the <code>(path to python)</code> with the actual path to
+wherever Python is installed on your system. If you&#8217;re not sure, here&#8217;s a
+simple, slow, and horribly inefficient but effective command to figure&nbsp;it&nbsp;out:</p>
+<div class="codehilite"><pre>find / -name &#39;virtualenvwrapper_bashrc&#39; 2&gt; /dev/null
+</pre></div>
+
+
+<p>Once you&#8217;ve got the necessary lines in your <code>~/.bashrc</code> you can close that&nbsp;terminal&nbsp;window.</p>
+<h2 id="set-up-a-public-repository">Set Up A&nbsp;Public&nbsp;Repository</h2>
+<p>This isn&#8217;t strictly required, but it&#8217;s polite and only takes a minute or two.
+If you&#8217;ve already got a method of sharing your repositories (using hgwebdir
+with your website, for example) go ahead and&nbsp;use&nbsp;that.</p>
+<p>If not, head over to <a href="http://bitbucket.org/">BitBucket</a>, sign up for an account if you don&#8217;t
+already have one (it&#8217;s free), and create a new public repository there. I&#8217;ve
+named mine <a href="http://bitbucket.org/sjl/hg-crew-sjl/">hg-crew-sjl</a> to be explicit about what it contains, but that&#8217;s
+not&nbsp;terribly&nbsp;important.</p>
+<p>Why bother doing this when you&#8217;re just going to email your work anyway? Some
+people (myself included) find it easier to pull changes from another
+repository than to apply them from emails. It also gets your changes out into
+a public place so other developers can view and modify <em>your</em>&nbsp;modifications.</p>
+<p>It&#8217;s also nice to have an easily accessible clone of your personal repository
+if you&#8217;re not at your own machine and want to do some&nbsp;more&nbsp;work.</p>
+<h2 id="set-up-your-local-clone">Set Up Your&nbsp;Local&nbsp;Clone</h2>
+<p>By now the crew repository should be finished cloning to your local machine.
+The first thing we want to do is set up the paths so we can push and pull
+easily. Modify the <code>.hg/hgrc</code> file inside that repository (<em>not</em> your
+<code>~/.hgrc</code> file!) to look&nbsp;like&nbsp;this:</p>
+<div class="codehilite"><pre><span class="k">[paths]</span>
+<span class="na">default</span> <span class="o">=</span> <span class="s">http://bitbucket.org/(username)/(repo name)/</span>
+<span class="na">crew</span> <span class="o">=</span> <span class="s">http://hg.intevation.org/mercurial/crew</span>
+</pre></div>
+
+
+<p>Replace <code>(username)</code> with your BitBucket username and <code>(repo name)</code> with the
+name of the BitBucket&nbsp;repository,&nbsp;obviously.</p>
+<p>Now you can run <code>hg push</code> to push any changes you commit locally to your
+public BitBucket repository, and <code>hg pull crew</code> to grab new changes from the&nbsp;crew&nbsp;repository.</p>
+<h2 id="build-mercurial">Build&nbsp;Mercurial</h2>
+<p>Make sure you&#8217;re in your local crew repository,&nbsp;and&nbsp;run:</p>
+<div class="codehilite"><pre>make local
+</pre></div>
+
+
+<p>This will build Mercurial from the source files. It should finish fairly
+quickly. Once that&#8217;s done, run the tests to make sure everything is&nbsp;working&nbsp;correctly:</p>
+<div class="codehilite"><pre>make tests
+</pre></div>
+
+
+<p>Those will take a long time to run. While you wait, move on to the&nbsp;next&nbsp;step.</p>
+<h2 id="create-a-virtual-environment-for-mercurial-development">Create a Virtual Environment for&nbsp;Mercurial&nbsp;Development</h2>
+<p>While the test suite is running you&#8217;re going to make a new virtual environment
+to use for testing your changes to Mercurial. First you need to create it, so
+open up a new terminal window&nbsp;and&nbsp;run:</p>
+<div class="codehilite"><pre>mkvirtualenv hg-dev
+</pre></div>
+
+
+<p>You can name it something else if you don&#8217;t like <code>hg-dev</code>. Notice how your
+shell prompt now has <code>(hg-dev)</code> prepended to it? That&#8217;s there to remind you
+that you&#8217;re working in&nbsp;that&nbsp;environment.</p>
+<p>Creating the environment automatically puts you into it for that shell
+session. To get into it in the future&nbsp;you&#8217;ll&nbsp;use:</p>
+<div class="codehilite"><pre>workon hg-dev
+</pre></div>
+
+
+<p>Now you need to link the Mercurial libraries you&#8217;re going to change to this
+environment, so you can use it to test your code. Run the following&nbsp;three&nbsp;commands:</p>
+<div class="codehilite"><pre>ln -s (full path to crew)/mercurial $WORKON_HOME/hg-dev/lib/python2.6/site-packages/
+ln -s (full path to crew)/hgext $WORKON_HOME/hg-dev/lib/python2.6/site-packages/
+ln -s (full path to crew)/hg $WORKON_HOME/hg-dev/bin/
+</pre></div>
+
+
+<p>Replace <code>(full path to crew)</code> with the <em>full</em> path to your local crew
+repository, and <code>hg-dev</code> with the name of your virtual environment (if you
+named it differently than&nbsp;I&nbsp;did).</p>
+<h2 id="why-bother-with-a-virtual-environment">Why Bother With a&nbsp;Virtual&nbsp;Environment?</h2>
+<p>It&#8217;s probably the most work in this entire process, so why did I insist you
+set it up?&nbsp;Watch&nbsp;this:</p>
+<div class="codehilite"><pre><span class="go">sjl at ecgtheow in ~/src/hg-crew-sjl on default </span>
+<span class="gp">$</span> hg --version
+<span class="go">Mercurial Distributed <span class="caps"><span class="caps">SCM</span></span> (version 1.2.1)</span>
+
+<span class="go">Copyright (C) 2005-2009 Matt Mackall &lt;mpm@selenic.com&gt; and others</span>
+<span class="go">This is free software; see the source for copying conditions. There is <span class="caps"><span class="caps">NO</span></span></span>
+<span class="go">warranty; not even for <span class="caps"><span class="caps">MERCHANTABILITY</span></span> or <span class="caps"><span class="caps">FITNESS</span></span> <span class="caps"><span class="caps">FOR</span></span> A <span class="caps"><span class="caps">PARTICULAR</span></span> <span class="caps"><span class="caps">PURPOSE</span></span>.</span>
+
+<span class="go">sjl at ecgtheow in ~/src/hg-crew-sjl on default </span>
+<span class="gp">$</span> workon hg-dev
+
+<span class="go">(hg-dev)</span>
+<span class="go">sjl at ecgtheow in ~/src/hg-crew-sjl on default </span>
+<span class="gp">$</span> hg --version
+<span class="go">Mercurial Distributed <span class="caps"><span class="caps">SCM</span></span> (version 7956a823daa3)</span>
+
+<span class="go">Copyright (C) 2005-2009 Matt Mackall &lt;mpm@selenic.com&gt; and others</span>
+<span class="go">This is free software; see the source for copying conditions. There is <span class="caps"><span class="caps">NO</span></span></span>
+<span class="go">warranty; not even for <span class="caps"><span class="caps">MERCHANTABILITY</span></span> or <span class="caps"><span class="caps">FITNESS</span></span> <span class="caps"><span class="caps">FOR</span></span> A <span class="caps"><span class="caps">PARTICULAR</span></span> <span class="caps"><span class="caps">PURPOSE</span></span>.</span>
+
+<span class="go">(hg-dev)</span>
+<span class="go">sjl at ecgtheow in ~/src/hg-crew-sjl on default </span>
+<span class="gp">$</span>
+</pre></div>
+
+
+<p>Look at the version numbers. Notice how&nbsp;they&nbsp;changed?</p>
+<p><strong>You can now use</strong> <code>workon hg-dev</code> <strong>to make the</strong> <code>hg</code> <strong>command run
+Mercurial with&nbsp;your&nbsp;changes!</strong></p>
+<p>This makes it simple to test your work as you go. I keep two terminal windows
+open while working on the&nbsp;Mercurial&nbsp;source:</p>
+<ul>
+<li>One is in my local crew repository to diff, commit, etc with the standard
+  version&nbsp;of&nbsp;Mercurial.</li>
+<li>The other is in a test repository. I&#8217;ve run <code>workon hg-dev</code> to switch to my
+  modified version so I can try out&nbsp;my&nbsp;changes.</li>
+</ul>
+<h2 id="get-to-work">Get&nbsp;To&nbsp;Work!</h2>
+<p>That&#8217;s it for the initial setup. Now you can start adding all the wonderful
+features you have in mind. A simple workflow might go something&nbsp;like&nbsp;this:</p>
+<ol>
+<li>Open two terminal windows and use <code>workon hg-dev</code> in the second one to
+   switch to the&nbsp;virtual&nbsp;environment.</li>
+<li>Make some changes to the&nbsp;Mercurial&nbsp;codebase.</li>
+<li>Test your changes in the second&nbsp;terminal&nbsp;window.</li>
+<li>Repeat 3 and 4, using the first terminal window to commit to the local
+   repository as&nbsp;you&nbsp;go.</li>
+</ol>
+<p>Once you&#8217;re finished with your shiny new feature, how do you get it into the
+main Mercurial code so we can all benefit&nbsp;from&nbsp;it?</p>
+<h2 id="modify-the-test-suite">Modify the&nbsp;Test&nbsp;Suite</h2>
+<p>Before you go off and submit a patch, you need to make sure it works with the
+current tests. You can run the tests by going to the repository&nbsp;and&nbsp;using:</p>
+<div class="codehilite"><pre>cd tests
+python run-tests.py
+</pre></div>
+
+
+<p>It&#8217;s going to take a while, just like before. If you changed something that
+modifies the output of a command it will probably break some of the existing
+tests. That&#8217;s alright, but you&#8217;ll need to fix them to reflect your changes.
+The simplest way to do this is to use the <code>--interactive</code> flag:</p>
+<div class="codehilite"><pre>python run-tests.py --interactive
+</pre></div>
+
+
+<p>Using <code>--interactive</code> will prompt you each time a test fails and ask if you
+want to accept the new output as the &#8220;correct&#8221; output. This makes it simple to
+update the existing tests to take your changes&nbsp;into&nbsp;account.</p>
+<p>Obviously you should <strong>only accept these updates if they make sense</strong>. Pay
+attention to the output and make sure you didn&#8217;t accidentally&nbsp;break&nbsp;something!</p>
+<h2 id="add-to-the-test-suite">Add to the&nbsp;Test&nbsp;Suite</h2>
+<p>If you&#8217;ve implemented an entirely new feature (as opposed to just modifying an
+existing one) you should add some tests of your own. This will make sure no
+one else will inadvertently break whatever&nbsp;you&#8217;ve&nbsp;added.</p>
+<p>There&#8217;s a nice <a href="http://www.selenic.com/mercurial/wiki/WritingTests#Writing_a_shell_script_test">guide</a> to this on the Mercurial site. Follow it to
+add some tests for&nbsp;your&nbsp;changes.</p>
+<p>From what I&#8217;ve heard it&#8217;s preferable to append to an existing set of tests (if
+it makes sense) instead of adding a brand new test file &#8212; the tests run
+pretty slowly and adding new files make them&nbsp;even&nbsp;slower.</p>
+<h2 id="email-your-patches-to-the-mailing-list">Email Your Patches to the&nbsp;Mailing&nbsp;List</h2>
+<p>You&#8217;ve finally got your code working and updated the tests. It&#8217;s time to share
+your changes with the rest of the&nbsp;Mercurial&nbsp;developers.</p>
+<p>If you want your patches to get accepted, you should take the time to read the
+<a href="http://www.selenic.com/mercurial/wiki/ContributingChanges">guide to contributing changes</a> and the <a href="http://www.selenic.com/mercurial/wiki/SuccessfulPatch">guide to making successful
+patches</a> on the Mercurial site. They&#8217;re short but contain most of what you
+need&nbsp;to&nbsp;know.</p>
+<p>I prefer to use the <a href="http://www.selenic.com/mercurial/wiki/PatchbombExtension">patchbomb</a> extension to email the patches because it
+takes care of the formatting for me. To enable and configure it you&#8217;ll need to
+make some additions to your <code>~/.hgrc</code> file:</p>
+<div class="codehilite"><pre><span class="k">[extensions]</span>
+<span class="na">hgext.patchbomb</span> <span class="o">=</span>
+
+<span class="k">[email]</span>
+<span class="na">method</span> <span class="o">=</span> <span class="s">smtp from = Your Name &lt;you@yourdomain.com&gt;</span>
+
+<span class="k">[smtp]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">smtp.youremailhost.com username = yourusername tls = True</span>
+</pre></div>
+
+
+<p>You&#8217;ll need to tweak those settings with your own email address, mail server,
+and so on. Once that&#8217;s done, you can have patchbomb package up your changes
+and email&nbsp;them&nbsp;out:</p>
+<div class="codehilite"><pre>hg email --rev (your first revision):(your last revision)
+</pre></div>
+
+
+<p>The command will guide you through filling out some more information, and then
+send out the patches. <code>hg help email</code> has a lot more information on how to&nbsp;use&nbsp;it.</p>
+<p>I usually email them to myself first just in case I mess up a revision number
+and email six thousand changesets. Flooding my own inbox is much better than
+flooding&nbsp;the&nbsp;list&#8217;s.</p>
+<h2 id="thats-it-now-go-contribute">That&#8217;s It, Now&nbsp;Go&nbsp;Contribute!</h2>
+<p>That&#8217;s about the extent of my knowledge on contributing to Mercurial. As I
+said before, I&#8217;ve only done one patch so far, but I wanted to write this while
+everything about setting up the environment was fresh in&nbsp;my&nbsp;mind.</p>
+<p>If any of the other Mercurial developers would like to chime in and suggest
+corrections or additions &#8212; or if anyone has any questions &#8212; I&#8217;ll be happy to
+update the post. I hope&nbsp;it&#8217;s&nbsp;helpful!</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>

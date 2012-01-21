@@ -1,0 +1,355 @@
+    
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>On Learning and Teaching / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2011/05/on-learning-and-teaching/">On Learning and&nbsp;Teaching</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2011/05/on-learning-and-teaching/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2011-05-22T17:00:00">
+            </span>
+            on May 22, 2011.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>I recently read a blog entry by <a href="http://www.cis.gvsu.edu/~kurmasz/">Zack Kurmas</a> called &#8220;<a href="http://spin.atomicobject.com/2011/05/17/the-deep-end-of-the-pool/">The deep end of the
+pool</a>&#8220;.  In it he talks about why he thinks some students succeed in introductory
+Computer Science classes while others fail.  If you&#8217;re a programmer and haven&#8217;t read
+it, stop right now and&nbsp;read&nbsp;it.</p>
+<p>In a nutshell: I think he&#8217;s pretty much correct.  I wanted to write this post because
+I think I have a solution to the problem that might work, at least for&nbsp;some&nbsp;people.</p>
+<div class="toc">
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#similarities-in-dancing-and-programming">Similarities in Dancing and Programming</a><ul>
+<li><a href="#programming-syntax">Programming&nbsp;Syntax</a></li>
+<li><a href="#dancing-footwork">Dancing&nbsp;Footwork</a></li>
+<li><a href="#footwork-is-syntax-and-syntax-is-footwork">Footwork is Syntax and Syntax&nbsp;is&nbsp;Footwork</a></li>
+</ul>
+</li>
+<li><a href="#plateaus-in-learning">Plateaus&nbsp;in&nbsp;Learning</a></li>
+<li><a href="#getting-through-plateaus">Getting Through Plateaus</a><ul>
+<li><a href="#the-lie-and-the-solution">The Lie and&nbsp;the&nbsp;Solution</a></li>
+<li><a href="#the-problem-with-the-solution">The Problem with&nbsp;the&nbsp;Solution</a></li>
+<li><a href="#the-solution-to-the-problem-with-the-solution">The Solution to the Problem with&nbsp;the&nbsp;Solution</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<h2 id="background">Background</h2>
+<p>I&#8217;m a computer programmer by trade.  I went to <a href="http://rit.edu/"><span class="caps"><span class="caps">RIT</span></span></a> for five years to  get my
+degree in Computer Science and before that I was working with toy programs during&nbsp;high&nbsp;school.</p>
+<p>While I was at <span class="caps"><span class="caps">RIT</span></span> I started going to <a href="http://www.rit.edu/sg/swing/">Swing Dance Club</a>.  I learned to swing dance
+there about eight years ago.  A few years later I started I began teaching Swing
+Dance Club with some of my friends, and about a year ago I started teaching Blues
+Dancing with <a href="http://ladyluckblues.com/">Lady Luck Blues</a>.</p>
+<p>I have a couple of other semi-serious hobbies that I&#8217;ve taken classes in as well:
+photography and&nbsp;bass&nbsp;playing.</p>
+<p>To summarize: I&#8217;ve had experience in a bunch of different areas, and I&#8217;ve been
+teaching one of them for&nbsp;a&nbsp;while.</p>
+<p><strong>Disclaimer:</strong> one thing I&#8217;ve never studied is teaching itself, so feel free to take
+everything I say about it with a large grain of salt.  I haven&#8217;t done any hard
+research and I could be&nbsp;completely&nbsp;wrong.</p>
+<h2 id="similarities-in-dancing-and-programming">Similarities in Dancing&nbsp;and&nbsp;Programming</h2>
+<p>In his article, Zack talks about programming syntax being a stumbling block for
+beginners.  I think he&#8217;s very right and I think there&#8217;s a similar concept&nbsp;in&nbsp;dancing.</p>
+<h3 id="programming-syntax">Programming&nbsp;Syntax</h3>
+<p>If you&#8217;re a programmer you can skip&nbsp;this&nbsp;section.</p>
+<p>For the non-programmers: &#8220;syntax&#8221; is the combination of letters, numbers and symbols
+that you write to create computer programs. For example, look at the following two
+bits&nbsp;of&nbsp;text:</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Hello&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="err">&#39;</span><span class="n">Hello</span><span class="err">&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+
+
+<p>Notice the difference?  The first snippet says <code>"Hello"</code> while the second says
+<code>'Hello"</code>.  Notice how the first uses two double quotes (<code>"</code>) while the second uses
+one double and one single quote (<code>'</code>).</p>
+<p>The first bit of code will work, but the second one won&#8217;t.  Little differences like
+these might not seem like a big deal, but to a computer they&#8217;re as different as
+<code>abcdefg</code> and <code>o34%^8@@.com</code>.</p>
+<h3 id="dancing-footwork">Dancing&nbsp;Footwork</h3>
+<p>If you&#8217;re a dancer you can skip&nbsp;this&nbsp;section.</p>
+<p>For the non-dancers: &#8220;footwork&#8221; is the pattern of steps you make when you dance.  For
+example, in Lindy Hop (a style of swing dancing) the basic footwork looks&nbsp;like&nbsp;this:</p>
+<div class="codehilite"><pre><span class="err">Beats:</span>   <span class="err">1</span>   <span class="err">2</span>   <span class="err">3</span>   <span class="err">4</span>   <span class="err">5</span>   <span class="err">6</span>   <span class="err">7</span>   <span class="err">8</span>
+<span class="err">Steps:</span>   <span class="err">x</span>   <span class="err">x</span>   <span class="err">x</span>  <span class="err">xx</span>   <span class="err">x</span>   <span class="err">x</span>   <span class="err">x</span>  <span class="err">xx</span>
+</pre></div>
+
+
+<p>For East Coast Swing, the basic footwork looks&nbsp;like&nbsp;this:</p>
+<div class="codehilite"><pre><span class="err">Beats:</span>   <span class="err">1</span>   <span class="err">2</span>   <span class="err">3</span>   <span class="err">4</span>   <span class="err">5</span>   <span class="err">6</span>
+<span class="err">Steps:</span>   <span class="err">x</span>   <span class="err">x</span>   <span class="err">x</span>  <span class="err">xx</span>   <span class="err">x</span>  <span class="err">xx</span>
+</pre></div>
+
+
+<p>Notice the differences?  Lindy Hop footwork is based on an eight beat pattern, while
+East Coast footwork is based on six beats.  The patterns also have the &#8220;extra steps&#8221;
+in&nbsp;different&nbsp;places.</p>
+<p>When you&#8217;re dancing with a partner you both need to be doing the same footwork,
+otherwise you can&#8217;t really&nbsp;dance&nbsp;together.</p>
+<h3 id="footwork-is-syntax-and-syntax-is-footwork">Footwork is Syntax and Syntax&nbsp;is&nbsp;Footwork</h3>
+<p>When you&#8217;re learning both programming and dancing there are lots of deep, high-level
+concepts you can tackle.  For programming you have things like object orientation,
+recursion, and <span class="caps"><span class="caps">API</span></span> design.  In dancing you have things like musicality, listening to
+your follower, and&nbsp;negative&nbsp;space.</p>
+<p>However: in my experience teaching dancing you need to learn and understand the
+footwork before you can learn the higher concepts.  If you&#8217;re still thinking about
+where to put your feet when you&#8217;re dancing you won&#8217;t have the spare brainpower to
+think about those&nbsp;other&nbsp;concepts.</p>
+<p>In Zack&#8217;s post he says the same thing about programming.  If you&#8217;re still struggling
+with understanding the syntax of programs you can&#8217;t simultaneously pay attention to
+the higher concepts that are being taught. I&#8217;ve never taught programming but my
+personal observations of programmers make me think&nbsp;he&#8217;s&nbsp;right.</p>
+<p>To be clear: there aren&#8217;t just two levels (low and high).  There are many
+levels/layers, each of which builds on the last.  Also: the layers are not linear &#8212;
+learning concept A might allow you to learn either B&nbsp;or&nbsp;C.</p>
+<p>However: the same idea applies most of the time.  You need to learn and internalize
+lower levels before moving on to the&nbsp;higher&nbsp;ones.</p>
+<h2 id="plateaus-in-learning">Plateaus&nbsp;in&nbsp;Learning</h2>
+<p>One thing I&#8217;ve noticed while learning dancing, programming, photography, and other
+skills is that my learning seems to progress quickly at times and slowly&nbsp;at&nbsp;others.</p>
+<p>When I&#8217;m learning quickly everything is great.  I feel good about myself and my
+abilities and I throw myself into learning as much as&nbsp;I&nbsp;can.</p>
+<p>On the other hand when I&#8217;m learning slowly (hitting a &#8220;plateau&#8221;) I often get
+frustrated or discouraged.  Nothing I try seems to speed up my ascent out of these
+plateaus.  It seems like the only thing that works is time and practice of what
+I&nbsp;already&nbsp;know.</p>
+<p>I think the reason for this is that once I learn a bunch of new concepts my brain
+needs some time to process them.  I can learn the concepts and use them if
+I concentrate, but it&#8217;s not effortless.  I think the reason I finally start learning
+quickly again after some time is that I&#8217;ve internalized the previous concepts and now
+I can move on to more difficult ones which build on the&nbsp;previous&nbsp;ones.</p>
+<p>The first plateau of programming is the syntax and the first plateau of dancing is
+footwork.  The bad part about this is that dancing when you only know footwork or
+programming when you only know syntax isn&#8217;t much fun.  You can&#8217;t do all of the most
+interesting things that make these skills&nbsp;so&nbsp;rewarding.</p>
+<h2 id="getting-through-plateaus">Getting&nbsp;Through&nbsp;Plateaus</h2>
+<p>In my own experience the hardest part about teaching is getting students through the
+plateaus.  Because it just takes time and practice to process what they&#8217;ve already
+learned there&#8217;s not much I can do to help them.  Students take more advanced classes
+but don&#8217;t really grab them until they&#8217;re fluent in the things they&#8217;ve&nbsp;previously&nbsp;learned.</p>
+<p>As a teacher, this is incredibly frustrating.  I want to teach my students what
+I know, but I know they won&#8217;t absorb it until they&#8217;ve absorbed the&nbsp;previous&nbsp;lessons.</p>
+<h3 id="the-lie-and-the-solution">The Lie and&nbsp;the&nbsp;Solution</h3>
+<p>Here&#8217;s the kicker, and what I think might provide the solution to this problem: <strong>I
+lied when I said that the only things that help me through plateaus are time&nbsp;and&nbsp;practice.</strong></p>
+<p>There&#8217;s one more thing that helps me get through plateaus: <strong>connecting the concepts
+I&#8217;m trying to internalize with concepts from other skills that I&nbsp;already&nbsp;know.</strong></p>
+<p>An example of this that I&#8217;ve written about before is <a href="http://stevelosh.com/blog/2008/08/negative-space-dancing/">negative space</a>.  When I was
+learning blues dancing I realized that &#8220;stopping your movement&#8221; was simply
+a different expression of the concept of &#8220;negative space&#8221;&nbsp;in&nbsp;photography.</p>
+<p>I had already struggled through internalizing the concept of negative space in
+photography, so when I connected this with dancing it helped make things &#8220;click&#8221;
+together and made the&nbsp;plateau&nbsp;shorter.</p>
+<h3 id="the-problem-with-the-solution">The Problem with&nbsp;the&nbsp;Solution</h3>
+<p>In my own life this solution&nbsp;is&nbsp;great.</p>
+<p>I have a bunch of hobbies and all of them mesh together in different ways.  Sometimes
+I can connect what I know in one to what I know in another and get through these
+plateaus more quickly.  When I can&#8217;t do that I can focus on one of my other hobbies
+while practicing another, which reduces the frustration of not&nbsp;progressing&nbsp;faster.</p>
+<p>When teaching students, however, this isn&#8217;t a trick I can&nbsp;use&nbsp;effectively.</p>
+<p>I can&#8217;t really tell a student: &#8220;you need to find something else to focus on for
+a while while you internalize what I&#8217;ve taught you.&#8221;  If they want to learn dancing,
+they&#8217;ll feel like taking more dance classes is the way to go.  They&#8217;re paying me to
+teach them so I obviously have to try to&nbsp;teach&nbsp;them.</p>
+<p>I sometimes try to teach the &#8220;analogies&#8221; between skills that have helped me.
+Sometimes this works well &#8212; the &#8220;Negative Space in Dancing&#8221; class that my partner
+and I have taught seems to go over well with most of&nbsp;the&nbsp;students.</p>
+<p>The problem is that everyone has different skills.  Trying to connect a concept in
+programming to a concept in photography is futile if the student doesn&#8217;t understand
+the&nbsp;photographic&nbsp;concept.</p>
+<h3 id="the-solution-to-the-problem-with-the-solution">The Solution to the Problem with&nbsp;the&nbsp;Solution</h3>
+<p>Disclaimer: once again, I&#8217;ve never studied teaching itself, so this might not be
+a new idea and/or I could be completely wrong&nbsp;about&nbsp;this.</p>
+<p>I&#8217;ve thought a long time about a way to fix this.  For students that are simply
+taking a class here and there with me, I haven&#8217;t found a&nbsp;good&nbsp;solution.</p>
+<p>However, for students enrolled in a longer series of classes, like college students
+studying a major, I think there might be a way to use this idea (linking concepts
+from disparate skills) to help&nbsp;them&nbsp;learn.</p>
+<p>When I went to <span class="caps"><span class="caps">RIT</span></span> I didn&#8217;t just take Computer Science classes.  I had to take a few
+science classes, a few math classes, a few history classes, and so on.  I believe
+other colleges work on the same system: you take many classes in your major and one
+or two classes in everything else.  The idea is that you become a&nbsp;&#8220;well-rounded&#8221;&nbsp;person.</p>
+<p>The bad part about this process is that one or two classes is not enough to get to
+one of these &#8220;plateaus&#8221;, struggle through it, and continue on.  Therefore you don&#8217;t
+have time to internalize the skills you learn, which means that you can&#8217;t connect
+them to concepts in&nbsp;your&nbsp;major.</p>
+<p>I&#8217;m also not sure how effective these random classes are at making students
+&#8220;well-rounded&#8221;.  If you don&#8217;t get far enough to internalize the skills you learn in
+a class are they really useful to you once you&#8217;re done with&nbsp;those&nbsp;classes?</p>
+<p>I think the way around this is to ditch the &#8220;one major and a tiny bit of everything
+else&#8221; process and move to a &#8220;one major and two or three&nbsp;minors&#8221;&nbsp;process.</p>
+<p>This will help students past the plateaus that discourage them, because they&#8217;ll have
+learned enough in their &#8220;minors&#8221; to be able to connect concepts to those in their
+major.  Teachers might not be able to teach specific analogies because the students
+will all have different minors, but each student will be able to connect the concepts
+in their majors on their own to whatever they happen to know from&nbsp;their&nbsp;minors.</p>
+<p>This process also has another benefit: students will leave college retaining more
+skills that they would have otherwise.  A programming student could leave college
+with a real, effective amount of knowledge in music; a writing major could leave with
+a real, effective amount of knowledge in biology, and&nbsp;so&nbsp;on.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I&#8217;m not naive enough to think that any college is going to change their entire
+curriculum based on some random guy&#8217;s&nbsp;blog&nbsp;post.</p>
+<p>My intended audience for this post is not colleges, but people that want to learn
+skills faster and more effectively.  I know that there are a lot of people out there
+hungry for knowledge and I hope that some of them can benefit from the ideas I&#8217;ve
+given, learn faster, and make the world a&nbsp;better&nbsp;place.</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>

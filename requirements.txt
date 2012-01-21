@@ -1,0 +1,7 @@
+-e svn+http://typogrify.googlecode.com/svn/trunk/#egg=typogrify
+-e svn+http://svn.cherrypy.org/tags/cherrypy-3.2.0rc1#egg=cherrypy
+
+PyYAML
+smartypants
+Pygments
+PIL

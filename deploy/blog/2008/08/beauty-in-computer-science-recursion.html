@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Beauty in Computer Science / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2008/08/beauty-in-computer-science-recursion/">Beauty in Computer&nbsp;Science</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2008/08/beauty-in-computer-science-recursion/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2008-08-29T15:30:38">
+            </span>
+            on August 29, 2008.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>When I went to college, I majored in Computer Science. I haven&#8217;t really
+written anything about this part of my life yet, so I figured this might be a
+good time&nbsp;to&nbsp;start.</p>
+<p>I decided to major in <span class="caps"><span class="caps">CS</span></span> when I was in high school. I learned to program on my
+own and enjoyed the challenge of it. I also knew that programming jobs are
+fairly common and pay well enough that I wouldn&#8217;t have to worrying about
+paying my rent. I wasn&#8217;t artistic in high school, and <span class="caps"><span class="caps">CS</span></span> seemed like a
+logical, sterile field that I felt I could do&nbsp;well&nbsp;in.</p>
+<p>During the years I spent at <span class="caps"><span class="caps">RIT</span></span> I changed quite a bit. I think the most
+important, or at least the most obvious, change has been my becoming more
+artistic. Between dancing, playing bass and photography I&#8217;ve developed a
+creative side that I never thought I could. Has this led me away from Computer
+Science&nbsp;at&nbsp;all?</p>
+<p>No. While I became a programmer for practical reasons, I stayed one for
+entirely different reasons. Computer Science (and math in general) is
+beautiful. It took me years to slowly realize this, but now that I have I see
+that it&#8217;s more beautiful than any dance, photograph of music I&#8217;ve ever
+encountered. This post is the first in a series of posts that I hope can
+communicate why I find <span class="caps"><span class="caps">CS</span></span> beautiful, or at least point in the&nbsp;right&nbsp;direction.</p>
+<h2 id="a-quick-primer-on-functions-for-non-programmers">A Quick Primer on &#8220;Functions&#8221;&nbsp;for&nbsp;Non-Programmers</h2>
+<p>I know that most (if not all) of the people that read my website don&#8217;t
+program. I&#8217;m going to try to avoid using extremely technical, computer sciency
+terms in these posts, but there are at least a few basic things that I need to
+explain. The first is what a&nbsp;function&nbsp;is.</p>
+<p>Think of a function as a set of instructions. A recipe is a decent example.
+Imagine you have a piece of paper with the following written&nbsp;on&nbsp;it:</p>
+<ol>
+<li>Heat a&nbsp;frying&nbsp;pan.</li>
+<li>Crack two eggs into&nbsp;a&nbsp;bowl.</li>
+<li>Mix&nbsp;the&nbsp;eggs.</li>
+<li>Pour the mixture into the hot&nbsp;frying&nbsp;pan.</li>
+<li>Stir the mixture until it&nbsp;is&nbsp;solid.</li>
+<li>Take the mixture out of&nbsp;the&nbsp;pan.</li>
+</ol>
+<p>That&#8217;s the simplest example of a function: a list of instructions that you
+follow in the order you get them. The next idea is a &#8220;parameter.&#8221; That recipe
+only told us how to make food for one person, wouldn&#8217;t it be nice to know how
+to make enough for two or more? Imagine the paper now&nbsp;says&nbsp;this:</p>
+<ol>
+<li>Heat a&nbsp;frying&nbsp;pan.</li>
+<li>Crack NUMBER_OF_PEOPLE * 2 eggs into&nbsp;a&nbsp;bowl.</li>
+<li>Mix&nbsp;the&nbsp;eggs.</li>
+<li>Pour the mixture into the hot&nbsp;frying&nbsp;pan.</li>
+<li>Stir the mixture until it&nbsp;is&nbsp;solid.</li>
+<li>Take the mixture out of&nbsp;the&nbsp;pan.</li>
+</ol>
+<p>Now we still have a single piece of paper, but by just substituting in the
+number of people we&#8217;re cooking for we have instructions for making any amount
+of food. If we have three people, NUMBER_OF_PEOPLE * 2 eggs becomes 3 * 2
+eggs, or&nbsp;6&nbsp;eggs.</p>
+<p>The last important concept is &#8220;calling.&#8221; Once you have one function, you can
+use it in other functions,&nbsp;like&nbsp;so:</p>
+<ol>
+<li>Put a plate on&nbsp;the&nbsp;table.</li>
+<li>Refer to the other piece of paper and do what it says, for&nbsp;1&nbsp;person.</li>
+<li>Put the result of that on&nbsp;the&nbsp;plate.</li>
+<li>Eat&nbsp;it.</li>
+</ol>
+<p>See how we did a few things, then referred to the other piece of paper instead
+of repeating ourselves? This lets you make small tasks and put them together
+to form bigger ones. That&#8217;s enough of a primer for now; if something&#8217;s not
+clear please find me on <a href="http://twitter.com/stevelosh/">Twitter</a> and let&nbsp;me&nbsp;know.</p>
+<h2 id="whats-recursion">What&#8217;s&nbsp;Recursion?</h2>
+<p>Recursion is a term that means, basically, a function calls (or refers to)
+itself. This concept can be hard to grasp, but once you do it slowly turns
+into something&nbsp;breathtakingly&nbsp;beautiful.</p>
+<p>Here&#8217;s a simple example: imagine you&#8217;re 10 meters away from a doorway and you
+want to walk out of it. A function that could help you do this might be: &#8220;Walk
+11 meters.&#8221; That&#8217;s&nbsp;pretty&nbsp;simple.</p>
+<p>What if we want to be able to walk out of a doorway that&#8217;s any number of
+meters ahead of us? We could say: &#8220;Walk <span class="caps"><span class="caps">DISTANCE</span></span> + 1 meters.&#8221; This works, but
+requires that you know how many meters away the door is before you even start
+walking. What if&nbsp;we&nbsp;don&#8217;t?</p>
+<p>How about we just do a little at a time and see how it goes? &#8220;Walk 2 meters.
+If you&#8217;re out of the doorway, stop. Otherwise, repeat this function.&#8221; If the
+doorway is 3 meters in front of us, we&#8217;ll walk 2, check if we&#8217;re out (we&#8217;re
+not), and repeat. We&#8217;ll walk 2, check if we&#8217;re out (we are), and stop. This
+function is recursive; it refers back&nbsp;to&nbsp;itself.</p>
+<h2 id="why-is-it-beautiful">Why is&nbsp;it&nbsp;beautiful?</h2>
+<p>The beauty of recursion, for me, is that you can build infinitely large or
+complex tasks or structures using one or two tiny, simple parts. I&#8217;ll give an
+example of this because I think it&#8217;s the easiest way for me to&nbsp;show&nbsp;it.</p>
+<p>Imagine that you only know three things: how to add 1 to a number, how to
+subtract 1 from a number, and what 0 means. Now imagine that you want to be
+able to add any two (positive) numbers (integers) together. How could you do
+this? Here&#8217;s&nbsp;a&nbsp;function:</p>
+<div class="codehilite"><pre>function add(x, y):
+    if y = 0:
+        return x
+    otherwise:
+        return add( x+1, y-1 )
+</pre></div>
+
+
+<p>Don&#8217;t let the new notation scare you; it&#8217;s the same kind of function as
+always. In English, it says &#8220;This function is named &#8216;add&#8217; and needs two
+parameters (x and y). Step one is to see if y is 0. If it is, the result is x.
+If it&#8217;s not, then the result is whatever you get from performing this function
+with the following parameters:&nbsp;x+1,&nbsp;y-1.&#8221;</p>
+<p>It might not be immediately obvious that this will actually perform the
+addition we&#8217;re used to, so let&#8217;s try it. First, let&#8217;s try adding 1 + 0. In
+that case, we check if y is 0. It is, so the result is x, or 1. So far,&nbsp;so&nbsp;good.</p>
+<p>Let&#8217;s try 2 + 1. Is y equal to 0? No, so we need to call add with some new
+parameters. 2+1 is 3, 1-0 is 0, so the result is now whatever we get from
+add(3, 0). We start following the instructions of add. Does y equal 0? Yes, so
+the result is 3, which is what&nbsp;we&nbsp;expect.</p>
+<p>One more for good measure: 9 + 2. First we check if y is 0. It&#8217;s not, so the
+result is then add(9+1, 2-1), or add(10,1). Start over. Is y zero? Nope, so
+the result is now add(11, 0). Start over. Is y zero? Yes, so the result is x,&nbsp;or&nbsp;11.</p>
+<h2 id="so-what">So&nbsp;What?</h2>
+<p>This will work for any x and any y (as long as they&#8217;re both positive, negative
+numbers make it just a tiny bit more complicated). This might not seem
+impressive, but think about what we&#8217;ve done. We&#8217;ve created something that can
+add any two numbers together. There are an infinite amount of numbers. This
+tiny function that we&#8217;ve made from the simplest of parts can generate more
+results than there are people on this planet. Or atoms in the universe. To me,
+this is amazing. Not &#8220;magic trick&#8221; amazing or &#8220;miracle&#8221; amazing but &#8220;I can
+understand and create something that can describe more knowledge than the
+whole of humanity couldn&#8217;t hope to describe in a thousand&nbsp;lifetimes&#8221;&nbsp;amazing.</p>
+<p>Computer Science (and math in general) is full of this kind of beauty. I&#8217;ve
+tried to find parallels in my other interests; the closest I&#8217;ve found is the
+photograph <a href="http://en.wikipedia.org/wiki/Pale_Blue_Dot">Pale Blue Dot</a>. It&#8217;s a photo taken by the Voyager 1 space probe
+showing an immense amount of space with the tiniest blue speck in the middle,
+which&nbsp;is&nbsp;Earth.</p>
+<p>When you view the photograph, it&#8217;s a mostly black field with a little fleck of
+blue pigment. Not terribly complicated or interesting, until you realize that
+that blue fleck is a representation of the planet that billions of people have
+lived and died on. A smidgen of blue ink, in the right context, represents
+every place a human has ever&nbsp;called&nbsp;&#8220;home.&#8221;</p>
+<p>Our addition function might not seems nearly as nifty as this, but it actually
+represents more than even this photo ever can. There are a finite number of
+people on Earth, but the addition function can add more numbers that that.
+Even if you count every second in the life of every person that has ever lived
+on our planet, the addition function can create more numbers&nbsp;than&nbsp;that.</p>
+<p>This awes me more than any myth, photograph, story, song, legend or dance ever
+has. It&#8217;s the reason I stayed a&nbsp;Computer&nbsp;Scientist.</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>

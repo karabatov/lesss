@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Making My Site Sing / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2010/09/making-my-site-sing/">Making My Site&nbsp;Sing</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2010/09/making-my-site-sing/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2010-09-08T20:10:00">
+            </span>
+            on September 8, 2010.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>Every year or so I get the urge to redesign my site. It&#8217;s only been seven
+months since the last time, so I guess working with <a href="http://nick.sg/">Nick Sergeant</a> and
+<a href="http://alialithinks.com/">Ali Ali</a> at <a href="http://dwaiter.com/">Dumbwaiter Design</a> has made me less satisfied than usual
+with my&nbsp;previous&nbsp;design.</p>
+<p>I didn&#8217;t switch frameworks this time &#8212; I&#8217;m still <a href="/blog/2010/01/moving-from-django-to-hyde/">using Hyde</a> to generate
+a set of flat <span class="caps"><span class="caps">HTML</span></span> files.  I only changed the structure and layout of the&nbsp;rendered&nbsp;site.</p>
+<p>I&#8217;m a programmer, not a designer, but I think it looks fairly good.  I wanted
+to write about how I went about designing the site because it might help&nbsp;other&nbsp;programmers.</p>
+<div class="toc">
+<ul>
+<li><a href="#finding-a-starting-point">Finding a&nbsp;Starting&nbsp;Point</a></li>
+<li><a href="#creating-a-vertical-rhythm">Creating a&nbsp;Vertical&nbsp;Rhythm</a></li>
+<li><a href="#designing-to-a-dominant-seventh">Designing to a&nbsp;Dominant&nbsp;Seventh</a></li>
+<li><a href="#removing-comments">Removing&nbsp;Comments</a></li>
+<li><a href="#adding-applause-with-flattr">Adding Applause&nbsp;with&nbsp;Flattr</a></li>
+<li><a href="#printing-nicely-with-print-links">Printing Nicely with&nbsp;Print&nbsp;Links</a></li>
+<li><a href="#showing-context-with-scrolly-headers">Showing Context with&nbsp;Scrolly&nbsp;Headers</a></li>
+<li><a href="#influences-and-goals">Influences&nbsp;and&nbsp;Goals</a></li>
+</ul>
+</div>
+<h2 id="finding-a-starting-point">Finding a&nbsp;Starting&nbsp;Point</h2>
+<p>The first thing I had to do was come up with a basic idea for the style and
+typography of&nbsp;the&nbsp;site.</p>
+<p>I decided to go with my usual style: dark text on a light background, very few
+images, and an overall feeling of &#8220;minimal.&#8221;  If I had the graphic design
+skills to make something impressive to look at I&#8217;d use them, but I don&#8217;t, so
+I wanted to stick with what I&#8217;m&nbsp;good&nbsp;at.</p>
+<p>I read a lot of programmers&#8217; blogs and one thing that annoys me is that I often
+end up using <a href="http://www.apple.com/safari/whats-new.html#reader">Safari Reader</a> to make their sites pleasant to read.  I want my
+site to be pleasant to read <em>without</em> extra tools like Reader, so I took the easy
+route and based the site&#8217;s typography on&nbsp;Reader&nbsp;itself.</p>
+<p>Reader uses 18px <a href="http://en.wikipedia.org/wiki/Palatino">Palatino</a> body text with a 25px line height, so that&#8217;s what
+I went with.  I considered using <a href="http://en.wikipedia.org/wiki/Georgia_(typeface)">Georgia</a> instead of Palatino, but
+unfortunately Georgia has an absolutely terrible bold weight. I also kept the
+width of the site small to&nbsp;mimic&nbsp;Reader.</p>
+<h2 id="creating-a-vertical-rhythm">Creating a&nbsp;Vertical&nbsp;Rhythm</h2>
+<p>Once I had a line height in place I could start working on a <a href="http://www.alistapart.com/articles/settingtypeontheweb/">vertical rhythm</a>.
+I used <a href="http://aardvark.fecklessmind.com/">Aardvark Legs</a> as a base stylesheet and edited it to fit the new font
+size and&nbsp;line&nbsp;height.</p>
+<p>Unfortunately the original post by Aardvark Legs&#8217; author seems to have
+disappeared.  In a nutshell: it&#8217;s a <span class="caps"><span class="caps">CSS</span></span> file that helps you set up a consistent&nbsp;vertical&nbsp;rhythm.</p>
+<p>I tried to keep myself honest by including a tiny bit of Javascript in the
+footer of the site that displays the vertical rhythm. If you click on it you
+should see that everything lines up properly (except the footer itself, which
+falls on a&nbsp;halfway&nbsp;point).</p>
+<p>For some entries the rhythm might not be perfect in non-Webkit browsers because
+I had to use some <a href="http://webkit.org/blog/363/styling-scrollbars/">Webkit-specific styling</a> to fix the height of
+scrollbars of wide <code>&lt;pre&gt;</code> blocks.</p>
+<h2 id="designing-to-a-dominant-seventh">Designing to a&nbsp;Dominant&nbsp;Seventh</h2>
+<p>In my spare time I play upright bass and teach blues dancing. I listen to a lot
+of jazz and blues music while doing both and one of the more common chords in
+those genres is a <a href="http://en.wikipedia.org/wiki/Dominant_seventh_chord">dominant seventh</a>.</p>
+<p>What does this have to do with my site&#8217;s design? Although I had a font size of
+18px for the body text I still needed to decide on sizes for headers and other
+site elements. Dominant seventh chords sound beautiful, so I used the notes in
+the chord to come up with&nbsp;these&nbsp;sizes.</p>
+<p>Here are the sizes I came up with (after rounding off to the&nbsp;nearest&nbsp;pixel):</p>
+<ul>
+<li>Root:&nbsp;18&nbsp;pixels</li>
+<li>Major third:&nbsp;23&nbsp;pixels</li>
+<li>Perfect fifth:&nbsp;27&nbsp;pixels</li>
+<li>Minor seventh:&nbsp;32&nbsp;pixels</li>
+<li>Octave:&nbsp;36&nbsp;pixels</li>
+<li>Major tenth:&nbsp;45&nbsp;pixels</li>
+</ul>
+<p>This gave me a variety of sizes to work with.  Here are a few places where
+I&nbsp;used&nbsp;them:</p>
+<ul>
+<li>Base font&nbsp;size:&nbsp;root</li>
+<li><code>h1</code> elements:&nbsp;major&nbsp;tenth</li>
+<li><code>h2</code> elements:&nbsp;minor&nbsp;seventh</li>
+<li><code>h3</code> elements:&nbsp;major&nbsp;third</li>
+<li><code>h4</code> elements:&nbsp;root</li>
+<li><span class="dquo"><span class="dquo">&#8220;</span></span>Logo&#8221; in the header:&nbsp;major&nbsp;third</li>
+<li>Navigation&nbsp;links:&nbsp;root</li>
+<li>Footer text: perfect fifth (an&nbsp;octave&nbsp;down)</li>
+</ul>
+<p>You might notice that I don&#8217;t use a straight perfect fifth anywhere in the
+design.  There are two reasons&nbsp;for&nbsp;this.</p>
+<p>First: the perfect fifth and the line height I got from Reader are only two
+pixels apart, which would&nbsp;feel&nbsp;dissonant.</p>
+<p>Second: the perfect fifth is the most &#8220;generic&#8221; note in the chord, so
+eliminating it doesn&#8217;t really change the feeling of the dominant seventh&nbsp;at&nbsp;all.</p>
+<p>Once I had my line height and header sizes I had plenty to work on.  I made
+images, blockquotes, code blocks, and everything else fit the rhythm. After
+that I decided to start playing with some&nbsp;other&nbsp;things.</p>
+<h2 id="removing-comments">Removing&nbsp;Comments</h2>
+<p>The first thing I did after I got the rhythm of the site down was to remove the
+<a href="http://disqus.com/">Disqus</a>&nbsp;comments.</p>
+<p>I did this for two reasons.  The first and most &#8220;practical&#8221; reason was that
+they simply looked out of place.  It&#8217;s hard to style content from a third-party
+site to look great with the rhythm of the site so I got rid of&nbsp;it&nbsp;altogether.</p>
+<p>The second reason is something I&#8217;ve learned from music and dancing: the most
+important notes are the ones you <em>don&#8217;t</em>&nbsp;play.</p>
+<p>I&#8217;m usually pretty busy with full-time and freelance work and don&#8217;t have enough
+time to properly respond to comments on the site.  Having comments here,
+then, is like having calls without responses &#8212; it doesn&#8217;t work&nbsp;very&nbsp;well.</p>
+<p>If someone wants to tell me something they can easily find me on
+<a href="http://twitter.com/stevelosh/">Twitter</a> and talk to me or discuss a post on <a href="http://news.ycombinator.com/">Hacker News</a>.</p>
+<h2 id="adding-applause-with-flattr">Adding Applause&nbsp;with&nbsp;Flattr</h2>
+<p>I&#8217;ve started using <a href="http://flattr.com/">Flattr</a> to help show my appreciation to people that make
+good things on the internet.  Since I was redesigning the site I figured I&#8217;d
+include Flattr buttons on my&nbsp;blog&nbsp;posts.</p>
+<p>One reason was simple: it lets people give me money for the things I write.
+Another reason is a bit more altruistic: if more people see Flattr buttons
+around the web more people will sign up and help&nbsp;out&nbsp;creators.</p>
+<p>I like to think of Flattr as applause at a jazz show or a dance.  It doesn&#8217;t
+really contribute anything to the conversation but it <em>does</em> let you easily
+show&nbsp;your&nbsp;appreciaton.</p>
+<p>The worst part of this was going through all my old blog posts and submitting
+them&nbsp;to&nbsp;Flattr.</p>
+<h2 id="printing-nicely-with-print-links">Printing Nicely with&nbsp;Print&nbsp;Links</h2>
+<p>This is something that my old site also had but I never really talked about
+(except on <a href="http://forrst.com/">Forrst</a>).</p>
+<p>If you print one of my site&#8217;s pages you&#8217;ll notice that any links inside
+a paragraph of content will show up in a list after the paragraph.  I think
+this makes it easier to refer to a printed copy because you can type in the
+URLs without having to visit my&nbsp;site&nbsp;again.</p>
+<p>To do this I use <a href="http://bitbucket.org/sjl/stevelosh/src/tip/media/js/print.js">a little bit of Javascript</a>.  I <em>could</em> put the URLs
+directly after the links using just <span class="caps"><span class="caps">CSS</span></span>, but I think that breaks up the content
+and makes it harder&nbsp;to&nbsp;read.</p>
+<h2 id="showing-context-with-scrolly-headers">Showing Context with&nbsp;Scrolly&nbsp;Headers</h2>
+<p>The last trick I pulled out of my sleeve was the &#8220;scrolly headers&#8221; to the left
+of the content, which you&#8217;ve probably&nbsp;already&nbsp;noticed.</p>
+<p>I tend to write fairly long blog posts and I think about their structure quite
+a bit.  Now that I&#8217;m using a much larger font I feel that it&#8217;s too easy to get
+lost while reading them. If you switch away from the page for a bit and come
+back you might not remember where&nbsp;you&nbsp;were.</p>
+<p>To help fix this I wrote a bit of Javascript to display the top-level headers
+of post content to the left of the content.  I think this might help people
+keep their place&nbsp;more&nbsp;easily.</p>
+<h2 id="influences-and-goals">Influences&nbsp;and&nbsp;Goals</h2>
+<p>While redesigning I had two main influences in mind:
+<a href="http://uggedal.com/">Eivind Uggedal&#8217;s site</a> and <a href="http://sirupsen.com/">Simon Hørup Eskildsen&#8217;s site</a>.
+I hope they don&#8217;t mind that I took a lot of elements from their designs to make&nbsp;my&nbsp;own.</p>
+<p>As I was making the new site I had a very simple goal: &#8220;make sure no one ever
+wants to use Safari Reader on&nbsp;my&nbsp;site.&#8221;</p>
+<p>The design isn&#8217;t particularly memorable (hell, it pretty much looks like you
+just used Safari Reader), but I don&#8217;t think that&#8217;s a problem.  I&#8217;m not
+a designer so I don&#8217;t want my site to be remembered for its design. I want it
+to be remembered for the content, so I aimed for a design that highlights that
+content and gets out of&nbsp;the&nbsp;way.</p>
+<p>If you have comments, questions, or suggestions feel free to find me on
+<a href="http://twitter.com/stevelosh/">Twitter</a>.</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>

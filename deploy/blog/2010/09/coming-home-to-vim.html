@@ -1,0 +1,838 @@
+    
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic' rel='stylesheet' type='text/css' />
+        <link rel="profile" href="http://microformats.org/profile/hcard" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Coming Home to Vim / Steve Losh</title>
+
+        
+            <link href="http://feeds2.feedburner.com/stevelosh"
+                  rel="alternate" title="Steve Losh"
+                  type="application/atom+xml" />
+        
+
+        
+            <link rel="stylesheet" href="/media/css/aal.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/sjl.css"      type="text/css" media="screen" charset="utf-8" />
+            <link rel="stylesheet" href="/media/css/print.css"    type="text/css" media="print" charset="utf-8" />
+            
+    <link rel="stylesheet"
+          href="/media/css/pygments-monokai-light.css"
+          type="text/css" media="screen" charset="utf-8" />
+
+        
+
+        
+            <script src="/media/js/jquery.js" type="text/javascript"></script>
+            <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/media/js/sjl.js" type="text/javascript"></script>
+            <script src="/media/js/print.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $("a.rhythm").toggle(function() {
+                        $("body").addClass("rhythm");
+                    }, function() {
+                        $("body").removeClass("rhythm");
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+            /* <![CDATA[ */
+                (function() {
+                    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+
+                    t.parentNode.insertBefore(s, t);
+                })();
+            /* ]]> */
+            </script>
+
+            
+        
+
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-15328874-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top group">
+                <header>
+                    <a href="/">steve losh</a>
+                </header>
+
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    <span class="sep">-</span>
+                    <a href="/projects">Projects</a>
+                    <span class="sep">-</span>
+                    <a href="/about/">About</a>
+                    <span class="sep">-</span>
+                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
+                </nav>
+            </div>
+
+            <div class="hr">&nbsp;</div>
+
+            <div class="content">
+                
+                    
+                        
+    <div id="leaf-title">
+        <h1><a href="/blog/2010/09/coming-home-to-vim/">Coming Home to&nbsp;Vim</a></h1>
+    </div>
+
+
+    <div id="leaf-stats" class="group">
+        
+            <div class="flattr">
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+                   href="http://stevelosh.com/blog/2010/09/coming-home-to-vim/"></a>
+           </div>
+        
+        <p>
+            Posted
+            <span class="timeago"
+                  title="2010-09-20T18:15:00">
+            </span>
+            on September 20, 2010.
+        </p>
+    </div>
+
+    <div id="leaf-content" class="">
+        
+            <!-- Hyde::Article::Begin -->
+                
+                    <p>I&#8217;m a programmer. I work with text files for 6-12 hours every weekday so I care
+about the text editor I use. If switching to a different editor can increase my
+efficiency by even 10% it would save a good chunk of my time and let me get
+back to making&nbsp;cool&nbsp;things.</p>
+<p>I don&#8217;t buy the &#8220;you&#8217;re thinking 90% of the time and only typing 10% of the
+time, so your editor doesn&#8217;t really matter&#8221; argument. Even if the premise is
+true, the conclusion&nbsp;is&nbsp;wrong.</p>
+<p>If I think for 10 minutes and then start typing, I want the typing to take the
+shortest time possible so I can get back to thinking. Any time I spend typing
+is an interruption that I want to minimize so I can keep my train&nbsp;of&nbsp;thought.</p>
+<p>I recently started using <a href="http://www.vim.org/">Vim</a> as my primary editor. As I&#8217;m adjusting I&#8217;m
+finding a lot of <a href="http://jeetworks.org/node/89">the</a> <a href="http://www.viemu.com/a-why-vi-vim.html">blog</a> <a href="http://wekeroad.com/2010/07/29/vim-is-your-daddy/">posts</a> <a href="http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/">people</a>
+<a href="http://nvie.com/posts/how-i-boosted-my-vim/">have</a> <a href="http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118">written</a> <a href="http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim">about</a> Vim very helpful, so I&#8217;m hoping this
+post will help&nbsp;people&nbsp;too.</p>
+<div class="toc">
+<ul>
+<li><a href="#some-background-about-me">Some Background&nbsp;About&nbsp;Me</a></li>
+<li><a href="#why-i-switched-to-textmate">Why I Switched&nbsp;to&nbsp;TextMate</a></li>
+<li><a href="#why-i-came-back-to-vim">Why I Came Back&nbsp;to&nbsp;Vim</a></li>
+<li><a href="#core-differences">Core&nbsp;Differences</a></li>
+<li><a href="#vims-feeling">Vim&#8217;s &#8220;Feeling&#8221;</a><ul>
+<li><a href="#a-language-of-text-editing">A &#8220;Language&#8221; of&nbsp;Text&nbsp;Editing</a></li>
+<li><a href="#the-physics-of-text">The Physics&nbsp;of&nbsp;Text</a></li>
+<li><a href="#programming-your-editing"><span class="dquo"><span class="dquo">&#8220;</span></span>Programming&#8221;&nbsp;Your&nbsp;Editing</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting&nbsp;Started</a></li>
+<li><a href="#making-vim-more-useful">Making Vim More Useful</a><ul>
+<li><a href="#important-vimrc-lines">Important&nbsp;.vimrc&nbsp;Lines</a></li>
+<li><a href="#using-the-leader">Using&nbsp;the&nbsp;Leader</a></li>
+<li><a href="#quicker-escaping">Quicker&nbsp;Escaping</a></li>
+<li><a href="#working-with-split-windows">Working With&nbsp;Split&nbsp;Windows</a></li>
+</ul>
+</li>
+<li><a href="#aesthetics">Aesthetics</a></li>
+<li><a href="#bundles-i-use">Bundles I Use</a><ul>
+<li><a href="#pathogen">Pathogen</a></li>
+<li><a href="#peepopen">PeepOpen</a></li>
+<li><a href="#nerdtree">NERDTree</a></li>
+<li><a href="#nerdcommenter">NERDCommenter</a></li>
+<li><a href="#ack">Ack</a></li>
+<li><a href="#snipmate">Snipmate</a></li>
+<li><a href="#sparkup">Sparkup</a></li>
+<li><a href="#yankring">Yankring</a></li>
+<li><a href="#surround-and-repeat">Surround&nbsp;(and&nbsp;Repeat)</a></li>
+<li><a href="#slime">Slime</a></li>
+<li><a href="#scratch">Scratch</a></li>
+<li><a href="#rainbow-parentheses">Rainbow&nbsp;Parentheses</a></li>
+</ul>
+</li>
+<li><a href="#things-i-want">Things I Want</a><ul>
+<li><a href="#html-indentation-that-doesnt-suck"><span class="caps"><span class="caps">HTML</span></span> Indentation that&nbsp;Doesn&#8217;t&nbsp;Suck</a></li>
+<li><a href="#python-support-for-slime">Python Support&nbsp;for&nbsp;Slime</a></li>
+<li><a href="#gundo">Gundo</a></li>
+<li><a href="#a-mercurial-version-of-fugitive">A Mercurial Version&nbsp;of&nbsp;Fugitive</a></li>
+</ul>
+</li>
+<li><a href="#overall-thoughts">Overall&nbsp;Thoughts</a></li>
+</ul>
+</div>
+<h2 id="some-background-about-me">Some Background&nbsp;About&nbsp;Me</h2>
+<p>I used Vim exclusively from about 2002 to 2005. I never really learned much
+about it and mostly used it as a glorified <a href="http://en.wikipedia.org/wiki/Nano_(text_editor)">nano</a>.</p>
+<p>In 2006 I decided it was time for a change. I wanted an editor that &#8220;fit&#8221; with
+<span class="caps"><span class="caps">OS</span></span> X. I tried <a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> for a while and it was kind of cool. The
+collaborative editing was more polished than any other version I&#8217;ve seen,
+though I didn&#8217;t have much use&nbsp;for&nbsp;it.</p>
+<p>As cool as SubEthaEdit was, I always felt like there was a better editor out
+there for me. Then I found <a href="http://macromates.com/">TextMate</a>.</p>
+<p>At the time I thought TextMate was amazing (and it really was). It <em>looked</em>
+like a Mac application. It was super easy to learn (all the <span class="caps"><span class="caps">OS</span></span> X text movement
+commands just worked). There were bundles&nbsp;for&nbsp;everything.</p>
+<p>I still used Vim occasionally (like when I had a job and only had a Windows
+machine), but for the most part I was a&nbsp;TextMate&nbsp;kid.</p>
+<p>After using TextMate for four years I decided it was time for another change.
+Development on TextMate has stalled while TextMate Forever (err, TextMate 2) is
+in the works. I started thinking about Vim (and reading blog posts by others
+about how they switched back) and decided to give it&nbsp;another&nbsp;try.</p>
+<p>A few months ago I bought <a href="http://amzn.com/059652983X">Learning the vi and Vim Editors</a> and went
+cold-turkey with Vim as my main text editor. I haven&#8217;t looked&nbsp;back&nbsp;since.</p>
+<h2 id="why-i-switched-to-textmate">Why I Switched&nbsp;to&nbsp;TextMate</h2>
+<p>As I mentioned before, there were a few reasons I switched to TextMate in the&nbsp;first&nbsp;place.</p>
+<p>First of all: it looks and acts like a real <span class="caps"><span class="caps">OS</span></span> X application.  You can drag
+files onto the icon to open them, it supports all the default <span class="caps"><span class="caps">OS</span></span> X text
+movement commands, and the chrome looks like it belongs on <span class="caps"><span class="caps">OS</span></span> X. I don&#8217;t know
+if <a href="http://code.google.com/p/macvim/">MacVim</a> was around at the time, but if it was I never&nbsp;found&nbsp;it.</p>
+<p>This matters. The effort required to get started with a new editor is
+dramatically reduced if that editor supports all the conventions of the
+operating system you use&nbsp;every&nbsp;day.</p>
+<p>It also has a vibrant community of people writing bundles for it, so there was
+support for almost anything I wanted&nbsp;to&nbsp;use.</p>
+<h2 id="why-i-came-back-to-vim">Why I Came Back&nbsp;to&nbsp;Vim</h2>
+<p>I came back to Vim for a number&nbsp;of&nbsp;reasons.</p>
+<p>First of all: I started reading about and desiring features that didn&#8217;t seem to
+be coming to TextMate any time soon. The biggest of those was split windows.
+I saw the appeal of split windows right away and now that I use them I can&#8217;t
+imagine not&nbsp;having&nbsp;them.</p>
+<p>Another reason is version control. A while ago I started keeping my
+<a href="http://bitbucket.org/sjl/dotfiles/">dotfiles</a> in a <a href="http://hg-scm.org/">Mercurial</a> repository which makes it extremely easy to set
+up new machines.  Vim keeps all of its configuration in two simple places:
+a simple <code>~/.vimrc</code> file and a <code>~/.vim</code> directory full of plain&nbsp;text&nbsp;files.</p>
+<p>Vim&#8217;s plain text configuration files and plugins are very easy to version
+control. They diff well, unlike TextMate&#8217;s multiple <code>Bundles</code> directories and
+ugly <span class="caps"><span class="caps">XML</span></span>&nbsp;file&nbsp;format.</p>
+<p>Vim&#8217;s community has been around far longer than TextMate&#8217;s so there&#8217;s an even
+richer set of plugins, bundles and syntax&nbsp;files&nbsp;available.</p>
+<p>Another reason people give for enjoying Vim is that it runs everywhere. Yes,
+it&#8217;s nice to have my favorite editor available when I <span class="caps"><span class="caps">SSH</span></span> into a machine, but
+it&#8217;s not a huge deal if I don&#8217;t. I almost always edit files on my own machine
+and then deploy them with an automated script of some kind, so editing on
+a server is very rare&nbsp;for&nbsp;me.</p>
+<h2 id="core-differences">Core&nbsp;Differences</h2>
+<p>For me, Vim and TextMate are very different.  TextMate relies mainly on
+keyboard shortcuts (involving Shift, Ctrl, Cmd and Alt) to do more than simply
+edit text. Vim uses a &#8220;modal editing&#8221; idea to accomplish the&nbsp;same&nbsp;task.</p>
+<p>TextMate&#8217;s philosophy is much the same as any normal <span class="caps"><span class="caps">OS</span></span> X application&#8217;s, and
+I said that acting like the <span class="caps"><span class="caps">OS</span></span> reduces the barrier of entry for a text editor,
+so why do I prefer&nbsp;Vim&#8217;s&nbsp;philosophy?</p>
+<p>First I should prefix my answer with this: I&#8217;m not averse to a learning curve
+for something as important to me as a text editor.  Yes, it&#8217;s awesome if
+I don&#8217;t need to unnecessarily rewire my brain, but if it&#8217;s going to save me
+a lot of time then I&#8217;m willing to cut a bit of&nbsp;slack&nbsp;here.</p>
+<p>My problem with TextMate&#8217;s philosophy can be summed up in one&nbsp;word:&nbsp;&#8220;shadowing&#8221;.</p>
+<p>If I want to define a new command in a bundle (or if someone else has already
+done it), I&#8217;m never really sure if I&#8217;m &#8220;overwriting&#8221; some other command that my
+fingers know but my brain doesn&#8217;t&nbsp;really&nbsp;register.</p>
+<p>By the time I try to use the default command it could be days or weeks after
+I defined the custom one, and I need to figure out what I did all over again.
+It&#8217;s&nbsp;quite&nbsp;frustrating.</p>
+<p>Vim&#8217;s &#8220;insert&#8221; mode means that when I&#8217;m editing text I&#8217;m using the normal <span class="caps"><span class="caps">OS</span></span>
+X text movement shortcuts that I know and love.  When I want to do something
+special I enter normal mode and don&#8217;t have to worry about shadowed commands
+(Vim&#8217;s leader key also helps&nbsp;with&nbsp;this).</p>
+<h2 id="vims-feeling">Vim&#8217;s&nbsp;&#8220;Feeling&#8221;</h2>
+<p>Vim&#8217;s normal mode has a unique &#8220;feeling&#8221; that I haven&#8217;t seen in any other text
+editor (although <a href="http://www.e-texteditor.com/">E</a> may <a href="http://e-texteditor.com/blog/2010/beyond-vi">change that</a>). I&#8217;ve heard it described in
+a number of ways, and I think that while no one analogy fully explains it,
+together they give a pretty&nbsp;good&nbsp;description.</p>
+<h3 id="a-language-of-text-editing">A &#8220;Language&#8221; of&nbsp;Text&nbsp;Editing</h3>
+<p>One way to think about Vim&#8217;s normal-mode commands is like a language.  You have
+&#8220;verbs&#8221; and &#8220;nouns&#8221;.  For example: the &#8220;change&#8221; command (<code>c</code>) would be a verb
+and the &#8220;word&#8221; item (<code>w</code>) is a noun.  You can combine them to form imperative
+sentences that talk about what you want to do with&nbsp;your&nbsp;text.</p>
+<p>The wonderful part about this is that whenever you learn a new verb (like
+&#8220;delete&#8221; (<code>d</code>)) you can immediately apply it to all the nouns you know, and&nbsp;vice&nbsp;versa.</p>
+<p>Vim also has &#8220;adjectives&#8221; like &#8220;inside&#8221; and &#8220;around&#8221; (<code>i</code> and <code>a</code>) that let you
+craft sentences like &#8220;change inside parenthesis&#8221; (<code>ci(</code> or <code>cib</code>).  Once you
+learn one of these you can immediately apply it to all the verbs and nouns you&nbsp;already&nbsp;know.</p>
+<h3 id="the-physics-of-text">The Physics&nbsp;of&nbsp;Text</h3>
+<p>The second way to describe the feeling of Vim is &#8220;physics&#8221;.  It&#8217;s a much less
+concrete description but I think it&#8217;s&nbsp;still&nbsp;useful.</p>
+<p>If I throw a bowling ball into the air it behaves much the same way as if
+I throw a turkey sandwich.  They might have very different effects when they
+land on someone but the act of throwing them is pretty much&nbsp;the&nbsp;same.</p>
+<p>Vim&#8217;s operators/actions/verbs act the same way. <code>daw</code> has a very different
+effect than <code>da{</code> but they can both be understood with a basic underlying
+principle: <code>da&lt;something&gt;</code> will &#8220;delete around <code>&lt;something&gt;</code>&#8220;.</p>
+<h3 id="programming-your-editing"><span class="dquo"><span class="dquo">&#8220;</span></span>Programming&#8221;&nbsp;Your&nbsp;Editing</h3>
+<p>The last way that I hear people talking about Vim&#8217;s editing is: &#8220;it feels like
+you&#8217;re &#8216;programming&#8217;&nbsp;your&nbsp;text&#8221;.</p>
+<p>This analogy is often made by programmers (obviously) and I think it works on
+more than&nbsp;one&nbsp;level.</p>
+<p>First: Vim&#8217;s basic editing commands can be likened to function calls.  <code>daw</code>
+can be thought of a running a function like <code>delete(type='word', around=True)</code>.
+I don&#8217;t think this way (I prefer the language and physics analogies) but other&nbsp;people&nbsp;do.</p>
+<p>Although I don&#8217;t think of the <em>basic</em> Vim commands as programming I do see
+some aspects of it in other areas.  For example: say I define a leader command
+in my <code>~/.vimrc</code> file:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="m">1</span> yypVr<span class="p">=</span>
+</pre></div>
+
+
+<p>I think of this as defining <code>&lt;leader&gt;1</code> to be a function that performs the&nbsp;following&nbsp;actions:</p>
+<ul>
+<li>Yank/copy the&nbsp;current&nbsp;line.</li>
+<li>Paste it below (and move down to the&nbsp;pasted&nbsp;version).</li>
+<li>Select the&nbsp;copied&nbsp;line.</li>
+<li>Replace every character with <code>=</code>.</li>
+</ul>
+<p>Another more obvious &#8220;programming&#8221; aspect of Vim is creating macros. Macros are
+like tiny little functions you create to help you when you&#8217;re editing a file.
+You can define them, execute them, and even edit them by pasting, editing and
+yanking&nbsp;them&nbsp;back.</p>
+<h2 id="getting-started">Getting&nbsp;Started</h2>
+<p>When I switched back to Vim I did a few things that helped make my&nbsp;transition&nbsp;stick.</p>
+<p>First: I bought <a href="http://amzn.com/059652983X">Learning the vi and Vim Editors</a> and read it cover to cover.
+It helps quite a bit to know the history behind Vim, and the book also teaches
+you the basics of Vim&#8217;s&nbsp;editing&nbsp;commands.</p>
+<p>I also looked through <a href="http://reddit.com/r/vim/">the Vim subreddit</a> to find some good blog posts about
+switching.  A lot of people have written about it and it was very helpful to
+read about&nbsp;their&nbsp;experiences.</p>
+<p>And finally, the most important part: I switched cold-turkey.  Vim runs everywhere, so
+there&#8217;s really no excuse for not doing this.  Every decent <span class="caps"><span class="caps">OS</span></span> has a version of
+Vim that makes insert mode &#8220;just work&#8221; for their <span class="caps"><span class="caps">OS</span></span> (like gvim or MacVim), so
+the barrier to entry these days is&nbsp;pretty&nbsp;low.</p>
+<p>You can get Vim and start using it right away by staying in insert mode most of
+the time. Then you can start learning its real features at your own pace.
+Trying to use two different editors at once just slows down the learning
+process and makes you less productive&nbsp;in&nbsp;both.</p>
+<h2 id="making-vim-more-useful">Making Vim&nbsp;More&nbsp;Useful</h2>
+<p>One of the flaws of Vim is that it takes quite a bit of configuration to make
+it behave in a decent way. The defaults are backwards-compatible with vi (i.e.
+older than most college students) and not&nbsp;very&nbsp;helpful.</p>
+<p>Here are a few of the things I do to make Vim a bit&nbsp;more&nbsp;palatable.</p>
+<p><strong>A quick side note:</strong> even if you don&#8217;t use Vim, you <em>need</em> to <a href="http://c2.com/cgi/wiki?RemapCapsLock">remap your
+capslock key</a> to something useful.  Just do it, you&#8217;ll&nbsp;thank&nbsp;me.</p>
+<h3 id="important-vimrc-lines">Important&nbsp;.vimrc&nbsp;Lines</h3>
+<p>I won&#8217;t go through every line in <a href="http://bitbucket.org/sjl/dotfiles/src/tip/vim/.vimrc">my <code>~/.vimrc</code> file</a>, but here are some of the
+lines that I simply could not&nbsp;live&nbsp;without.</p>
+<p>First, a few lines that you absolutely&nbsp;must&nbsp;have:</p>
+<div class="codehilite"><pre><span class="k">filetype</span> off
+<span class="k">call</span> pathogen#runtime_append_all_bundles<span class="p">()</span>
+<span class="k">filetype</span> plugin indent <span class="k">on</span>
+
+<span class="k">set</span> <span class="nb">nocompatible</span>
+
+<span class="k">set</span> <span class="nb">modelines</span><span class="p">=</span><span class="m">0</span>
+</pre></div>
+
+
+<p>The <code>filetype</code> and <code>call</code> lines are for loading Pathogen, which is described in
+the bundles section. See <a href="http://www.vim.org/scripts/script.php?script_id=2332">Pathogen&#8217;s docs</a> to learn about why the
+first <code>filetype</code> line&nbsp;is&nbsp;there.</p>
+<p><code>set nocompatible</code> gets rid of all the crap that Vim does to be vi compatible.
+It&#8217;s 2010 &#8212; we don&#8217;t need to be compatible with vi at the expense of
+functionality&nbsp;any&nbsp;more.</p>
+<p>The <code>modelines</code> bit prevents some <a href="http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html">security exploits</a> having to do with
+modelines in files.  I never use modelines so I don&#8217;t miss any&nbsp;functionality&nbsp;here.</p>
+<p>Next I set my&nbsp;tab&nbsp;settings:</p>
+<div class="codehilite"><pre><span class="k">set</span> <span class="nb">tabstop</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">softtabstop</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">expandtab</span>
+</pre></div>
+
+
+<p>I like all tabs to expand to four spaces.  Check out <a href="http://vimcasts.org/episodes/tabs-and-spaces/">this Vimcast</a> to
+learn more about each of&nbsp;these&nbsp;options.</p>
+<p>Next are a few options that just make&nbsp;things&nbsp;better:</p>
+<div class="codehilite"><pre><span class="k">set</span> <span class="nb">encoding</span><span class="p">=</span>utf<span class="m">-8</span>
+<span class="k">set</span> <span class="nb">scrolloff</span><span class="p">=</span><span class="m">3</span>
+<span class="k">set</span> <span class="nb">autoindent</span>
+<span class="k">set</span> <span class="nb">showmode</span>
+<span class="k">set</span> <span class="nb">showcmd</span>
+<span class="k">set</span> <span class="nb">hidden</span>
+<span class="k">set</span> <span class="nb">wildmenu</span>
+<span class="k">set</span> <span class="nb">wildmode</span><span class="p">=</span><span class="nb">list</span>:longest
+<span class="k">set</span> <span class="nb">visualbell</span>
+<span class="k">set</span> <span class="nb">cursorline</span>
+<span class="k">set</span> <span class="nb">ttyfast</span>
+<span class="k">set</span> <span class="nb">ruler</span>
+<span class="k">set</span> <span class="nb">backspace</span><span class="p">=</span>indent<span class="p">,</span><span class="nb">eol</span><span class="p">,</span><span class="k">start</span>
+<span class="k">set</span> <span class="nb">laststatus</span><span class="p">=</span><span class="m">2</span>
+<span class="k">set</span> relativenumber
+<span class="k">set</span> undofile
+</pre></div>
+
+
+<p>Each of these lines are basically to make Vim behave in a sane manner.  The two
+&#8220;interesting&#8221; ones are the last two, and both deal with features that are
+<a href="http://groups.google.com/group/vim_announce/browse_thread/thread/66c02efd1523554b">new in Vim 7.3</a>.</p>
+<p><code>relativenumber</code> changes Vim&#8217;s line number column to display how far away each
+line is from the current one, instead of showing the absolute&nbsp;line&nbsp;number.</p>
+<p>I almost never care what numeric line I&#8217;m on in a file (and if I do I can see
+it in the status line), so I don&#8217;t miss the normal line numbers. I <em>do</em> care
+how far away a particular line might be, because it tells me what number I need
+to use with motion commands like <code>d&lt;NUMBER&gt;d</code>.</p>
+<p><code>undofile</code> tells Vim to create <code>&lt;FILENAME&gt;.un~</code> files whenever you edit a file.
+These files contain undo information so you can undo previous actions even
+after you close and reopen&nbsp;a&nbsp;file.</p>
+<p>Next I change the <code>&lt;leader&gt;</code> key:</p>
+<div class="codehilite"><pre><span class="k">let</span> mapleader <span class="p">=</span> <span class="c">&quot;,&quot;</span>
+</pre></div>
+
+
+<p>For me <code>,</code> is easier to type than <code>\</code>. I use leader commands constantly so it&#8217;s&nbsp;worth&nbsp;changing.</p>
+<p>The next thing I do is&nbsp;tame&nbsp;searching/moving:</p>
+<div class="codehilite"><pre>nnoremap <span class="sr">/ /</span>\v
+vnoremap <span class="sr">/ /</span>\v
+<span class="k">set</span> <span class="nb">ignorecase</span>
+<span class="k">set</span> <span class="nb">smartcase</span>
+<span class="k">set</span> <span class="nb">gdefault</span>
+<span class="k">set</span> <span class="nb">incsearch</span>
+<span class="k">set</span> <span class="nb">showmatch</span>
+<span class="k">set</span> <span class="nb">hlsearch</span>
+nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;&lt;</span>space<span class="p">&gt;</span> :<span class="k">noh</span><span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
+nnoremap <span class="p">&lt;</span><span class="k">tab</span><span class="p">&gt;</span> %
+vnoremap <span class="p">&lt;</span><span class="k">tab</span><span class="p">&gt;</span> %
+</pre></div>
+
+
+<p>The first two lines fix Vim&#8217;s horribly broken default regex &#8220;handling&#8221; by
+automatically inserting a <code>\v</code> before any string you search for.  This turns
+off Vim&#8217;s crazy default regex characters and makes searches use normal regexes.
+I already know Perl/Python compatible regex formatting, why would I want to
+learn&nbsp;another&nbsp;scheme?</p>
+<p><code>ignorecase</code> and <code>smartcase</code> together make Vim deal with case-sensitive search
+intelligently. If you search for an all-lowercase string your search will be
+case-insensitive, but if one or more characters is uppercase the search will be
+case-sensitive. Most of the time this does what&nbsp;you&nbsp;want.</p>
+<p><code>gdefault</code> applies substitutions globally on lines.  For example, instead of
+<code>:%s/foo/bar/g</code> you just type <code>:%s/foo/bar/</code>.  This is almost always what you
+want (when was the last time you wanted to only replace the first occurrence of
+a word on a line?) and if you need the previous behavior you just tack on the
+<code>g</code> again.</p>
+<p><code>incsearch</code>, <code>showmatch</code> and <code>hlsearch</code> work together to highlight search
+results (as you type).  It&#8217;s really quite handy, as long as you have the next
+line&nbsp;as&nbsp;well.</p>
+<p>The <code>&lt;leader&gt;&lt;space&gt;</code> mapping makes it easy to clear out a search by typing
+<code>,&lt;space&gt;</code>. This gets rid of the distracting highlighting once I&#8217;ve found what
+I&#8217;m&nbsp;looking&nbsp;for.</p>
+<p>The last two lines make the tab key match bracket pairs. I use this to move
+around all the time and <code>&lt;tab&gt;</code> is a hell of a lot easier to type than <code>%</code>.</p>
+<p>The next section makes Vim handle long&nbsp;lines&nbsp;correctly:</p>
+<div class="codehilite"><pre><span class="k">set</span> <span class="nb">wrap</span>
+<span class="k">set</span> <span class="nb">textwidth</span><span class="p">=</span><span class="m">79</span>
+<span class="k">set</span> <span class="nb">formatoptions</span><span class="p">=</span>qrn1
+<span class="k">set</span> colorcolumn<span class="p">=</span><span class="m">85</span>
+</pre></div>
+
+
+<p>These lines manage my line wrapping settings and also show a colored column at
+85 characters (so I can see when I write a too-long line&nbsp;of&nbsp;code).</p>
+<p>See <a href="http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table"><code>:help fo-table</code></a> and the Vimcasts on <a href="http://vimcasts.org/episodes/soft-wrapping-text/">soft wrapping</a> and <a href="http://vimcasts.org/episodes/hard-wrapping-text/">hard wrapping</a> for&nbsp;more&nbsp;information.</p>
+<p>Next comes something other TextMate refugees&nbsp;may&nbsp;like:</p>
+<div class="codehilite"><pre><span class="k">set</span> <span class="nb">list</span>
+<span class="k">set</span> <span class="nb">listchars</span><span class="p">=</span><span class="k">tab</span>:▸\ <span class="p">,</span><span class="nb">eol</span>:¬
+</pre></div>
+
+
+<p>This makes Vim show invisible characters with the same characters that TextMate
+uses.  You might need to adjust your color scheme so they&#8217;re not too
+distracting. <a href="http://vimcasts.org/episodes/show-invisibles/">This Vimcast</a> has&nbsp;more&nbsp;information.</p>
+<p>New Vim users will want the following lines to teach them to do&nbsp;things&nbsp;right:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span><span class="k">up</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+nnoremap <span class="p">&lt;</span>down<span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+nnoremap <span class="p">&lt;</span><span class="k">left</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+nnoremap <span class="p">&lt;</span><span class="k">right</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+inoremap <span class="p">&lt;</span><span class="k">up</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+inoremap <span class="p">&lt;</span>down<span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+inoremap <span class="p">&lt;</span><span class="k">left</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+inoremap <span class="p">&lt;</span><span class="k">right</span><span class="p">&gt;</span> <span class="p">&lt;</span>nop<span class="p">&gt;</span>
+nnoremap <span class="k">j</span> gj
+nnoremap <span class="k">k</span> gk
+</pre></div>
+
+
+<p>This will disable the arrow keys while you&#8217;re in normal mode to help you learn
+to use <code>hjkl</code>.  Trust me, you want to learn to use <code>hjkl</code>.  Playing a lot of
+<a href="http://www.nethack.org/">Nethack</a>&nbsp;also&nbsp;helps.</p>
+<p>It also disables the arrow keys in insert mode to force you to get back into
+normal mode the instant you&#8217;re done inserting text, which is the &#8220;right way&#8221; to&nbsp;do&nbsp;things.</p>
+<p>It also makes j and k work the way you expect instead of working in some
+archaic &#8220;movement by file line instead of screen&nbsp;line&#8221;&nbsp;fashion.</p>
+<p>Next, get rid of that stupid goddamned help key that you will invaribly hit
+<em>constantly</em> while aiming&nbsp;for&nbsp;escape:</p>
+<div class="codehilite"><pre>inoremap <span class="p">&lt;</span>F1<span class="p">&gt;</span> <span class="p">&lt;</span><span class="caps"><span class="caps">ESC</span></span><span class="p">&gt;</span>
+nnoremap <span class="p">&lt;</span>F1<span class="p">&gt;</span> <span class="p">&lt;</span><span class="caps"><span class="caps">ESC</span></span><span class="p">&gt;</span>
+vnoremap <span class="p">&lt;</span>F1<span class="p">&gt;</span> <span class="p">&lt;</span><span class="caps"><span class="caps">ESC</span></span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>I also like to make <code>;</code> do the same thing as <code>:</code> &#8212; it&#8217;s one less key to hit
+every time I want to save&nbsp;a&nbsp;file:</p>
+<div class="codehilite"><pre>nnoremap ; :
+</pre></div>
+
+
+<p>I don&#8217;t remap <code>:</code> back to <code>;</code> because it seems to break a bunch&nbsp;of&nbsp;plugins.</p>
+<p>Finally, I really like TextMate&#8217;s &#8220;save on losing focus&#8221; feature.  I can&#8217;t
+remember a time when I <em>didn&#8217;t</em> want to save a file after tabbing away from my
+editor (especially with version control and Vim&#8217;s&nbsp;persistent&nbsp;undo):</p>
+<div class="codehilite"><pre>au <span class="nb">FocusLost</span> * :<span class="k">wa</span>
+</pre></div>
+
+
+<p>Those are the most important bits of my <code>~/.vimrc</code> file. Next I&#8217;ll talk about
+the wonderful namespace of customization that is Vim&#8217;s <code>&lt;leader&gt;</code> key.</p>
+<h3 id="using-the-leader">Using&nbsp;the&nbsp;Leader</h3>
+<p>Vim dedicates an entire keyboard key for user-specific customizations. This is
+called the &#8220;leader&#8221; and by default it&#8217;s mapped to <code>\</code>. As I mentioned in the
+previous section I prefer to use <code>,</code> instead.</p>
+<p>Each person will find little things they type or execute often and want to
+create shortcuts for those things. The leader is a kind of &#8220;namespace&#8221; to keep
+those customizations separate and prevent them from shadowing&nbsp;default&nbsp;commands.</p>
+<p>Here are a few of the things I use leader commands for.  You&#8217;ll certainly have
+different ideas than I do, but this might give you an idea of what you&nbsp;can&nbsp;do.</p>
+<p>I use <code>,W</code> to mean &#8220;strip all trailing whitespace in the current file&#8221; so I can
+clean things&nbsp;up&nbsp;quickly:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>W :%s<span class="sr">/\s\+$//&lt;cr&gt;:let @/</span><span class="p">=</span><span class="s1">&#39;&#39;</span><span class="p">&lt;</span><span class="caps"><span class="caps">CR</span></span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>I use Ack a lot (described below), so I mapped a leader key&nbsp;for&nbsp;it:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>a :Ack
+</pre></div>
+
+
+<p>I work with <span class="caps"><span class="caps">HTML</span></span> often, so I have <code>,ft</code> mapped to a &#8220;fold&nbsp;tag&#8221;&nbsp;function:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="nb">ft</span> Vatzf
+</pre></div>
+
+
+<p>I also work with Nick Sergeant and he likes his <span class="caps"><span class="caps">CSS</span></span> properties sorted, so
+here&#8217;s a <code>,S</code> mapping that sorts them&nbsp;for&nbsp;me:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>S ?{<span class="p">&lt;</span><span class="caps"><span class="caps">CR</span></span><span class="p">&gt;</span>jV/^\s*\}?$<span class="p">&lt;</span><span class="caps"><span class="caps">CR</span></span><span class="p">&gt;</span><span class="k">k</span>:<span class="k">sort</span><span class="p">&lt;</span><span class="caps"><span class="caps">CR</span></span><span class="p">&gt;</span>:<span class="k">noh</span><span class="p">&lt;</span><span class="caps"><span class="caps">CR</span></span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>This next mapping imitates TextMates <code>Ctrl+Q</code> function to re-hardwrap
+paragraphs&nbsp;of&nbsp;text:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">q</span> gqip
+</pre></div>
+
+
+<p>I have a <code>,v</code> mapping to reselect the text that was just pasted so I can
+perform commands (like indentation)&nbsp;on&nbsp;it:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>v V`]
+</pre></div>
+
+
+<p>This last mapping lets me quickly open up my <code>~/.vimrc</code> file in a vertically
+split window so I can add new things to it on&nbsp;the&nbsp;fly.</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>ev <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;&lt;</span>C<span class="p">-</span>v<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">l</span><span class="p">&gt;</span>:<span class="k">e</span> $<span class="caps"><span class="caps">MYVIMRC</span></span><span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h3 id="quicker-escaping">Quicker&nbsp;Escaping</h3>
+<p>One thing you&#8217;ll find yourself constantly doing in Vim is moving from insert
+mode to normal mode.  The default way to do this is by hitting Escape, but that
+key is out of the way and hard&nbsp;to&nbsp;hit.</p>
+<p>Another way is to use <code>Ctrl+C</code> or <code>Ctrl+[</code>, but I don&#8217;t like using a chord for
+something I press&nbsp;that&nbsp;often.</p>
+<p>I personally use <code>jj</code> to exit back to normal mode. The only time I&#8217;ve ever
+actually tried to hit two <code>j</code>&#8216;s in a row is just now while writing this entry,
+so it doesn&#8217;t conflict with my normal typing&nbsp;at&nbsp;all:</p>
+<div class="codehilite"><pre>inoremap jj <span class="p">&lt;</span><span class="caps"><span class="caps">ESC</span></span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h3 id="working-with-split-windows">Working With&nbsp;Split&nbsp;Windows</h3>
+<p>Being able to split my editor window and see more than one file at once is one
+of the main reasons I switched to Vim.  I know I&#8217;m not alone here after reading
+various posts around the internet asking for this feature&nbsp;in&nbsp;TextMate.</p>
+<p>Vim&#8217;s default commands for interacting with splits, however, are kind of
+clunky.  I&#8217;ve added a few mappings to my <code>~/.vimrc</code> that make things work a&nbsp;bit&nbsp;smoother.</p>
+<p>This first mapping makes <code>,w</code> open a new vertical split and switch over to it.
+Because really, how often do you split your window and not want to do something
+in the&nbsp;new&nbsp;split?</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">w</span> <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span>v<span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span><span class="k">l</span>
+</pre></div>
+
+
+<p>You might notice that this mapping is for vertical splits.  I almost <em>never</em>
+use horizontal splits. All of my screens are widescreen, so I can fit several
+files onscreen if they&#8217;re split vertically. Horizontal splits don&#8217;t let me see
+enough of the file. If I <em>really</em> want a horizontal split I can use <code>&lt;C-w&gt;s</code>
+to&nbsp;get&nbsp;one.</p>
+<p>This next set of mappings maps <code>&lt;C-[h/j/k/l]&gt;</code> to the commands needed to move
+around your splits.  If you remap your capslock key to <code>Ctrl</code> it makes for very&nbsp;easy&nbsp;navigation.</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">h</span><span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span><span class="k">h</span>
+nnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">j</span><span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span><span class="k">j</span>
+nnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">k</span><span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span><span class="k">k</span>
+nnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">l</span><span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span><span class="k">w</span><span class="p">&gt;</span><span class="k">l</span>
+</pre></div>
+
+
+<h2 id="aesthetics">Aesthetics</h2>
+<p>I know some people say: &#8220;looks don&#8217;t matter, the only thing that&#8217;s important is
+functionality&#8221;. That&#8217;s&nbsp;completely&nbsp;wrong.</p>
+<p>If I&#8217;m looking at something for multiple hours each day it had damn well better
+look pretty. There are three main steps to making Vim look pretty (for me, on
+<span class="caps"><span class="caps">OS</span></span> X &#8212; your mileage&nbsp;may&nbsp;vary).</p>
+<p>First: get <a href="http://code.google.com/p/macvim/">MacVim</a>.  It makes Vim look (and behave) like a native Mac
+application. It helps it avoid standing out like a sore thumb among your other
+applications. Linux and Windows users will probably&nbsp;want&nbsp;gvim.</p>
+<p>Next: pick a decent font.  I prefer 12 point <a href="http://arstechnica.com/apple/news/2009/06/font-changes-coming-to-mac-os-x-snow-leopard.ars">Menlo</a>.  You might have
+a different preference, but at least try out a few and find one that has a nice
+balance between line height (so you can get a good amount of lines on the
+screen) and readability (slashed&nbsp;zeros,&nbsp;please).</p>
+<p>Finally: find a good color scheme. I&#8217;ve been using <a href="http://bitbucket.org/sjl/dotfiles/src/tip/vim/colors/molokai.vim">a slightly modified
+version</a> of <a href="http://www.vim.org/scripts/script.php?script_id=2340">Molokai</a> (a port of the TextMate <a href="http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/">Monokai</a> theme)
+since I came back to Vim, but recently I&#8217;ve also started flirting with
+<a href="http://hcalves.deviantart.com/art/Mustang-Vim-Colorscheme-98974484">Mustang</a> and <a href="http://forr.st/~yZn">Clouds Midnight</a>.  Spend an hour and find something that
+looks good&nbsp;to&nbsp;you.</p>
+<p>Here&#8217;s what my current setup&nbsp;looks&nbsp;like:</p>
+<p><img alt="Current Vim Setup Screenshot" src="/media/images/blog/2010/09/vim.png" title="My Current Vim Setup" /></p>
+<h2 id="bundles-i-use">Bundles&nbsp;I&nbsp;Use</h2>
+<p>Vim has been around for a <em>long</em> time, and many people have written extensions
+for it.  Here are a few of the bundles I couldn&#8217;t live without in my&nbsp;day-to-day&nbsp;editing.</p>
+<h3 id="pathogen">Pathogen</h3>
+<p>First of all: <a href="http://github.com/tpope">Tim Pope</a> has created the wonderful <a href="http://github.com/tpope/vim-pathogen">Pathogen</a> plugin that
+makes managing <em>other</em> Vim plugins painless.  Instead of scattering their files
+throughout your <code>~/.vim/</code> folder you can keep their files inside a single
+folder in <code>~/.vim/bundles/</code>.</p>
+<p>Install it and keep&nbsp;your&nbsp;sanity.</p>
+<h3 id="peepopen">PeepOpen</h3>
+<p>One of TextMate&#8217;s &#8220;killer features&#8221; is its <code>Cmd+T</code> key. It lets you open files
+quickly by typing fragments of&nbsp;their&nbsp;names.</p>
+<p>There are a number of Vim plugins out there that try to emulate it.  My
+favorite is <a href="http://peepcode.com/products/peepopen">PeepOpen</a>.  Yes, it&#8217;s <span class="caps"><span class="caps">OS</span></span> X only and costs money, but it&#8217;s worth
+it.  It looks good and&nbsp;&#8220;just&nbsp;works&#8221;.</p>
+<p>PeepOpen has some nifty little features, like showing Git metadata in the file
+list. I&#8217;ve <a href="http://github.com/topfunky/PeepOpen-Issues/issues#issue/91">offered a patch</a> to add the same functionality for Mercurial but
+haven&#8217;t heard back from&nbsp;the&nbsp;developers.</p>
+<p>If you don&#8217;t use <span class="caps"><span class="caps">OS</span></span> X (or want a free alternative to PeepOpen) I hear the
+<a href="https://wincent.com/products/command-t">Command-T</a> plugin is&nbsp;quite&nbsp;nice.</p>
+<h3 id="nerdtree">NERDTree</h3>
+<p>One plugin you&#8217;ll hear about in almost all of these &#8220;switching to Vim&#8221; blog
+posts is <a href="http://github.com/scrooloose/nerdtree">NERDTree</a>. It&#8217;s a little plugin for browsing files in your project,
+and it works great. There&#8217;s no better &#8220;TextMate file-drawer&#8221;&nbsp;plugin&nbsp;around.</p>
+<h3 id="nerdcommenter">NERDCommenter</h3>
+<p>Want to be able to comment and uncomment code with a few keypresses?  You need
+<a href="http://github.com/scrooloose/nerdcommenter">NERDCommenter</a>. It&#8217;s surprising that Vim doesn&#8217;t have decent commenting
+functionality built in, but NERDCommenter&nbsp;fixes&nbsp;that.</p>
+<p>I really only use this plugin for one single function: &#8220;toggle comment&#8221; with
+<code>&lt;leader&gt;c&lt;space&gt;</code>. That function alone is worth&nbsp;installing&nbsp;it.</p>
+<h3 id="ack">Ack</h3>
+<p>If you&#8217;re a programmer and you don&#8217;t know about <a href="http://betterthangrep.com/">Ack</a>, you need to start
+using it now. It&#8217;s far, far better&nbsp;than&nbsp;grep.</p>
+<p>The <a href="http://github.com/mileszs/ack.vim">Ack plugin</a> for Vim integrates Ack with Vim&#8217;s quickfix window so
+you can easily search and jump&nbsp;to&nbsp;results.</p>
+<p>As I mentioned in the section about leader mappings I&#8217;ve got <code>,a</code> mapped to
+bring up Ack all ready&nbsp;to&nbsp;search.</p>
+<h3 id="snipmate">Snipmate</h3>
+<p>Another feature of TextMate that was <em>amazing</em> when I first saw it was
+snippets. <a href="http://github.com/msanders/snipmate.vim">SnipMate</a> is a Vim plugin that emulates&nbsp;TextMate&nbsp;snippets.</p>
+<p>It also stores them in easily-version-controlled plain text files, which is
+a bonus over&nbsp;TextMate&#8217;s&nbsp;snippets.</p>
+<h3 id="sparkup">Sparkup</h3>
+<p><a href="http://github.com/rstacruz/sparkup">Sparkup</a> is pretty much a great port of <a href="http://code.google.com/p/zen-coding/">Zen Coding</a> for Vim. If you write
+<span class="caps"><span class="caps">HTML</span></span> at all this plugin will save you a ton&nbsp;of&nbsp;typing.</p>
+<p>In a nutshell it lets you type&nbsp;something&nbsp;like:</p>
+<div class="codehilite"><pre>div.content&gt;h1.post-title+p{Sample Content}
+</pre></div>
+
+
+<p>Press <code>Cmd+E</code> and it will expand&nbsp;to&nbsp;this:</p>
+<div class="codehilite"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;post-title&quot;</span><span class="nt">&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Sample Content<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>It&#8217;s far less typing and it adds up&nbsp;over&nbsp;time.</p>
+<h3 id="yankring">Yankring</h3>
+<p>Vim&#8217;s copying and pasting functionality (which uses registers) is very, very
+powerful, but it&#8217;s not exactly &#8220;user friendly&#8221;. The <a href="http://www.vim.org/scripts/script.php?script_id=1234">YankRing</a> plugin adds
+a lot <em>more</em> power, but also adds a few features that make copying and pasting
+much&nbsp;more&nbsp;pleasant.</p>
+<p>For example, after you paste some text you can replace that paste with the
+previous item you copied with <code>Ctrl-P</code>.  You can cycle back further by just
+hitting <code>Ctrl-P</code> over&nbsp;and&nbsp;over.</p>
+<p>YankRing also shares your yanked text between Vim windows, which makes things
+&#8220;just work&#8221; when you want to paste text from one window&nbsp;into&nbsp;another.</p>
+<p>You can also show a list of all your previously yanked text with <code>:YRShow</code>.
+Mapping that command to a key is&nbsp;quite&nbsp;helpful:</p>
+<div class="codehilite"><pre>nnoremap <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span> <span class="p">&lt;</span>F3<span class="p">&gt;</span> :YRShow<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
+inoremap <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span> <span class="p">&lt;</span>F3<span class="p">&gt;</span> <span class="p">&lt;</span><span class="caps"><span class="caps">ESC</span></span><span class="p">&gt;</span>:YRShow<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>YankRing offers a ton of other cool functionality but I haven&#8217;t had the time or
+motivation to really dig in and find out how to&nbsp;use&nbsp;it.</p>
+<h3 id="surround-and-repeat">Surround&nbsp;(and&nbsp;Repeat)</h3>
+<p>Another of Time Pope&#8217;s plugins that I use all the time is the <a href="http://github.com/tpope/vim-surround">Surround</a>
+plugin.  It adds another layer to Vim&#8217;s physics:&nbsp;&#8220;surrounding&nbsp;items&#8221;.</p>
+<p>For example, you can &#8220;change surrounding single quotes to double quotes&#8221; by
+using <code>cs'"</code>. Or if you&#8217;re writing something in Markdown and want to italicize
+a word you can use <code>ysiW*</code>.</p>
+<p>All the nouns and verbs you already know can be used, which fits with Vim&#8217;s
+philosophy and makes it&nbsp;extremely&nbsp;powerful.</p>
+<p>The <a href="http://github.com/tpope/vim-repeat">Repeat</a> plugin is necessary to make these surround actions repeatable
+with <code>.</code>.</p>
+<h3 id="slime">Slime</h3>
+<p>Emacs users often tout <span class="caps"><span class="caps">SLIME</span></span> as one of Emacs&#8217; &#8220;killer features&#8221;. When writing
+<span class="caps"><span class="caps">LISP</span></span> code it&#8217;s&nbsp;unchallengably&nbsp;awesome.</p>
+<p>Vim doesn&#8217;t have anything like <span class="caps"><span class="caps">SLIME</span></span>. It&#8217;s not integrated with any language the
+way Emacs is coupled to <span class="caps"><span class="caps">LISP</span></span>. You can, however, achieve <em>some</em> of the power of
+<span class="caps"><span class="caps">SLIME</span></span>&nbsp;in&nbsp;Vim.</p>
+<p><a href="http://technotales.wordpress.com/">Jonathan Palardy</a> has written a little Vim plugin called <a href="http://technotales.wordpress.com/2007/10/03/like-slime-for-vim/">Slime.vim</a> that
+lets Vim easily communicate with a screen session, probably one running a <span class="caps"><span class="caps">REPL</span></span>
+for some language like <span class="caps"><span class="caps">LISP</span></span>, Python&nbsp;or&nbsp;Ruby.</p>
+<p>The general idea is that you&#8217;ll fire up <span class="caps"><span class="caps">LISP</span></span> in a screen session, then go over
+to Vim and use <code>Ctrl+C Ctrl+C</code> to put chunks of code in your Vim window into
+the&nbsp;screen&nbsp;session.</p>
+<p>It works and is quite handy for when you want to experiment with the contents
+of a file. Add a mapping for shoving over the entire file and you&#8217;re all set to
+bash out and test some&nbsp;code&nbsp;quickly.</p>
+<p>I personally use <a href="http://bitbucket.org/sjl/dotfiles/src/tip/vim/plugin/slime.vim">a slightly modified version</a> that removes a bit of
+the flexibility I don&#8217;t need to make it quicker to use. Maybe some day I&#8217;ll
+expand on it and push it up to BitBucket and GitHub in a repo of&nbsp;its&nbsp;own.</p>
+<h3 id="scratch">Scratch</h3>
+<p>The <a href="http://www.vim.org/scripts/script.php?script_id=664">Scratch</a> plugin adds a function to quickly open a &#8220;scratch&#8221; buffer that
+will never&nbsp;be&nbsp;saved.</p>
+<p>I have it mapped to <code>&lt;leader&gt;&lt;tab&gt;</code> and use it with slime to quickly stick
+a bit of code that I don&#8217;t want in my actual file into the&nbsp;<span class="caps"><span class="caps">REPL</span></span>.</p>
+<h3 id="rainbow-parentheses">Rainbow&nbsp;Parentheses</h3>
+<p><a href="http://www.vim.org/scripts/script.php?script_id=1561">Rainbow Parentheses</a> is a Vim plugin that colorizes parentheses, square
+brackets, curly brackets and angle brackets according to&nbsp;their&nbsp;nesting.</p>
+<p>It&#8217;s easiest to describe what this looks like with&nbsp;a&nbsp;screenshot:</p>
+<p><img alt="Rainbow Parentheses Screenshot" src="/media/images/blog/2010/09/rainbow.png" title="Rainbow Parentheses" /></p>
+<p>I use <a href="http://bitbucket.org/sjl/dotfiles/src/tip/vim/bundle/rainbow/">a slightly modified version</a>. I have it mapped to <code>&lt;leader&gt;R</code>
+and off by default.  When I&#8217;m dealing with a particularly hairy piece of code
+that has lots of nesting I simply hit <code>&lt;leader&gt;R</code> and get some color that helps
+me keep&nbsp;my&nbsp;place.</p>
+<h2 id="things-i-want">Things&nbsp;I&nbsp;Want</h2>
+<p>Although Vim is definitely my new favorite editor, this blog post wouldn&#8217;t be
+complete without a&nbsp;few&nbsp;complaints.</p>
+<p>If anyone fixes/implements any of these I&#8217;ll gladly buy them&nbsp;several&nbsp;beers.</p>
+<h3 id="html-indentation-that-doesnt-suck"><span class="caps"><span class="caps">HTML</span></span> Indentation that&nbsp;Doesn&#8217;t&nbsp;Suck</h3>
+<p>I write a lot of <span class="caps"><span class="caps">HTML</span></span>. One thing that annoys the hell out of me is Vim&#8217;s
+&#8220;smart&#8221; indenting of <span class="caps"><span class="caps">HTML</span></span>. I&#8217;ve tried every combination of <code>cindent</code>,
+<code>smartindent</code> and <code>autoindent</code> and I can&#8217;t seem to get Vim to&nbsp;behave&nbsp;sanely.</p>
+<p>The problem is that sometimes when I press return after a tag that I&#8217;ve already
+created Vim will unindent the new line <em>and the previous line</em>. This is&nbsp;excruciatingly&nbsp;annoying.</p>
+<p>All I want is&nbsp;the&nbsp;following:</p>
+<ul>
+<li>When I press return, create a new line at the same indentation level as the
+  current one. Don&#8217;t try to be clever and adjust the indent of new line in&nbsp;any&nbsp;fashion.</li>
+<li>If I press tab at the beginning of a line, indent the <em>current line</em> by&nbsp;one&nbsp;tabstop.</li>
+<li>If I press backspace at the beginning of a line, delete one tabstop on that&nbsp;line&nbsp;only.</li>
+</ul>
+<p>Please, someone make this happen and restore&nbsp;my&nbsp;sanity.</p>
+<h3 id="python-support-for-slime">Python Support&nbsp;for&nbsp;Slime</h3>
+<p>Earlier I mentioned that I use the slime plugin. One language it doesn&#8217;t work
+very well with is Python, because it preserves whitespace when it moves the
+code over the&nbsp;<span class="caps"><span class="caps">REPL</span></span>.</p>
+<p>This is a problem with Python because if you try to move over an indented block
+of code you&#8217;ll get &#8220;unexpected&nbsp;indent&#8221;&nbsp;problems.</p>
+<p>I&#8217;d love for someone to tweak slime so it intelligently unindents Python code.
+I have some ideas on how this could work but unfortunately I don&#8217;t have the
+time to&nbsp;implement&nbsp;them.</p>
+<h3 id="gundo">Gundo</h3>
+<p>A little-known fact about Vim is that it doesn&#8217;t keep a list of your undo
+history, it keeps a <em>tree</em>.</p>
+<p>If I make 5 changes, undo 2 and then make 2 more Vim keeps track of <em>all</em> of
+them. You can use <code>:undolist</code> to see the list of leaves in this&nbsp;&#8220;undo&nbsp;tree&#8221;.</p>
+<p>What I want is for someone to make an awesome &#8220;graphical undo&#8221; plugin that
+shows a graph of the undo tree, much like Mercurial&#8217;s graphlog extension shows
+a graph of the changesets in&nbsp;a&nbsp;repository.</p>
+<p>This graph would actually be simpler than Mercurial&#8217;s graphlog because there
+are no merges to&nbsp;deal&nbsp;with.</p>
+<p>For bonus points let me browse the tree with <code>j</code> and <code>k</code>, press <code>p</code> to preview
+a diff of what would happen if I went back to that version, and press <code>&lt;CR&gt;</code> to
+actually&nbsp;go&nbsp;back.</p>
+<p><strong><span class="caps"><span class="caps">UPDATE</span></span>:</strong> I got tired of waiting, so I <a href="http://bitbucket.org/sjl/gundo.vim/">wrote it myself</a>.</p>
+<h3 id="a-mercurial-version-of-fugitive">A Mercurial Version&nbsp;of&nbsp;Fugitive</h3>
+<p>The final thing I&#8217;d like is for someone to make a Mercurial plugin for Vim that
+is as awesome as Tim Pope&#8217;s <a href="http://github.com/tpope/vim-fugitive">Fugitive</a>.</p>
+<p>There&#8217;s some Mercurial support for Vim out there, but for the most part it&#8217;s
+tied up in plugins that support multiple version&nbsp;control&nbsp;systems.</p>
+<p>Any plugin that tries to support every system will fail at supporting one
+single system perfectly, so I&#8217;d love for someone to come along and make an
+<em>awesome</em> Vim plugin that lets you use Mercurial to its fullest while&nbsp;inside&nbsp;Vim.</p>
+<p>I simply don&#8217;t know vimscript well enough to do this on my own, but if someone
+else is interested I can certainly help out on the Mercurial and user&nbsp;interface&nbsp;aspects.</p>
+<h2 id="overall-thoughts">Overall&nbsp;Thoughts</h2>
+<p>Transitioning back to Vim after using TextMate for a few years wasn&#8217;t trivial,
+but I feel that it was worth the effort.  I have features like split windows
+now and there are plugins that can provide anything I miss&nbsp;from&nbsp;TextMate.</p>
+<p>If TextMate 2 ever gets released it would have to do some pretty amazing things
+for me to want to&nbsp;switch&nbsp;back.</p>
+<p>Overall I&#8217;m very happy with Vim.  There are a lot of things that could be
+improved, especially with the default settings (who cares about vi
+compatibility in 2010?), but a text editor is worth a&nbsp;learning&nbsp;curve.</p>
+<p>In my eyes Vim has two huge advantages over almost any other editor out there.
+The first is it&#8217;s <em>huge</em> ecosystem of plugins and syntax definitions, which is
+only rivaled by Emacs (and <em>possibly</em> TextMate, though I doubt it). The second
+is it&#8217;s &#8220;modal editing&#8221; philosophy, which is extremely powerful and hasn&#8217;t been
+adopted by any other mainstream editor (except for <em>very</em> recent versions&nbsp;of&nbsp;E).</p>
+<p>If you&#8217;ve got questions or comments you should <a href="http://twitter.com/stevelosh/">find me on Twitter</a> and
+let&nbsp;me&nbsp;know.</p>
+                
+            <!-- Hyde::Article::End -->
+        
+    </div>
+
+                    
+                
+            </div>
+
+            <div class="hrb">&nbsp;</div>
+
+            <footer>
+                I'm also on
+                <a href="http://bitbucket.org/sjl/">BitBucket</a>,
+                <a href="http://github.com/sjl/">GitHub</a>,
+                <a href="http://twitter.com/stevelosh/">Twitter</a>,
+                <a href="http://forrst.com/people/stevelosh/">Forrst</a>
+                and
+                <a href="http://flickr.com/photos/sjl7678/">Flickr</a>.
+                I've got <a href="#" class="rhythm">rhythm</a>.
+            </footer>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+         var t   = document.createElement('script');
+         t.type  = 'text/javascript';
+         t.async = true;
+         t.id    = 'gauges-tracker';
+         t.setAttribute('data-site-id', '4e8f83a7f5a1f53f20000011');
+         t.src = '//secure.gaug.es/track.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</html>
