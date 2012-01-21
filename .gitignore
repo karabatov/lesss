@@ -1,3 +1,7 @@
-*.pyc
 .DS_Store
-site.log
+*.pyc
+*.log
+deploy_tmp/
+backups/
+*.swp
+*.un~
