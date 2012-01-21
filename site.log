@@ -22,3 +22,7 @@
 [21/Jan/2012:23:36:36] ENGINE Bus EXITING
 [21/Jan/2012:23:36:36] ENGINE Bus EXITED
 [21/Jan/2012:23:36:36] ENGINE Waiting for child threads to terminate...
+[22/Jan/2012:00:14:15] ENGINE Bus STARTING
+[22/Jan/2012:00:14:15] ENGINE Started monitor thread '_TimeoutMonitor'.
+[22/Jan/2012:00:14:15] ENGINE Serving on localhost:8080
+[22/Jan/2012:00:14:15] ENGINE Bus STARTED

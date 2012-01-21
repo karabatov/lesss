@@ -16,9 +16,9 @@ BACKUP = False
 DEBUG = True
 
 SITE_ROOT = "/"
-SITE_WWW_URL = "http://stevelosh.com"
-SITE_NAME = "Steve Losh"
-SITE_AUTHOR = "Steve Losh"
+SITE_WWW_URL = "http://lessselling.com"
+SITE_NAME = "Less Selling"
+SITE_AUTHOR = "Yuri Karabatov"
 
 GENERATE_ABSOLUTE_FS_URLS = False
 GENERATE_CLEAN_URLS = True
