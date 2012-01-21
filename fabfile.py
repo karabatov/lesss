@@ -2,8 +2,8 @@ from fabric.api import *
 import os
 import fabric.contrib.project as project
 
-PROD = 'sl'
-DEST_PATH = '/var/www/stevelosh.com/'
+PROD = 'gator1241.hostgator.com:2222'
+DEST_PATH = '/home/ykar/public_html/lessselling.com'
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 DEPLOY_PATH = os.path.join(ROOT_PATH, 'deploy')
 
